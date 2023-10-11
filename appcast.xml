@@ -1,1 +1,14 @@
-
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>TCCKronos</title>
+        <item>
+            <title>0.1.1</title>
+            <pubDate>Wed, 11 Oct 2023 15:37:44 +0200</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PhorionTech/Kronos/releases/download/0.1.1/Kronos.app.zip" length="4627179" type="application/octet-stream"/>
+        </item>
+    </channel>
+</rss>
