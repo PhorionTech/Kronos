@@ -1,0 +1,6 @@
+framework module Pods_TCCKronosTests {
+  umbrella header "Pods-TCCKronosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

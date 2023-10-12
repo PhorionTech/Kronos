@@ -1,0 +1,6 @@
+framework module Pods_TCCKronos {
+  umbrella header "Pods-TCCKronos-umbrella.h"
+
+  export *
+  module * { export * }
+}
