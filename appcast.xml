@@ -3,6 +3,14 @@
     <channel>
         <title>TCCKronos</title>
         <item>
+            <title>1.2.5</title>
+            <pubDate>Thu, 12 Oct 2023 17:46:09 +0200</pubDate>
+            <sparkle:version>1.2.5</sparkle:version>
+            <sparkle:shortVersionString>1.2.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PhorionTech/Kronos/releases/download/1.2.5/TCCKronos.app.zip" length="4285906" type="application/octet-stream" sparkle:edSignature="fIFVP0RAQShiIDqv+RPVjOx6NBnNTfNEK9WJs1/hpilfjOKXXgH2h/4ouH8B/H8aESIBukcErO/KLABnecW4CA=="/>
+        </item>
+        <item>
             <title>1.2.4</title>
             <pubDate>Thu, 12 Oct 2023 17:18:43 +0200</pubDate>
             <sparkle:version>1.2.4</sparkle:version>
