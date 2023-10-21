@@ -1,15 +1,16 @@
-
+//
 //  AppDelegate.m
 //  tcc-kronos
-
-
-
+//
+//  Created by Calum Hall on 08/09/2023.
+//
 
 #import "AppDelegate.h"
 
 #import "DispatchTimer.h"
 #import "XPCConnection.h"
 #import "TCCNotifier/TCCEventNotifier.h"
+#import "ExtensionToggling/InstallExtension.h"
 
 @import Sentry;
 
@@ -21,6 +22,7 @@
 
 @implementation AppDelegate {
     DispatchTimer* _xpcConnectRetry;
+    InstallExtension* _installExtension;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -56,6 +58,17 @@
     // Setup the XPC Connection to our system extension
     _xpcConnection = [XPCConnection shared];
     
+    if ([_xpcConnection isConnected]) {
+        NSString* sysExtVersion = [_xpcConnection checkSysExtVersion];
+        
+        if ([sysExtVersion isNotEqualTo:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]) {
+            // Version mismatch between sysext and app, we should install.
+            
+            _installExtension = [[InstallExtension alloc] init];
+            [_installExtension install];
+        }
+    }
+    
     _xpcConnectRetry = [[DispatchTimer alloc]
         initWithInterval:2 * NSEC_PER_SEC
                tolorance:1 * NSEC_PER_SEC
@@ -68,8 +81,6 @@
 
     [_xpcConnectRetry start];
 
-    // Leaving this here for testing notifications
-    // [[TCCEventNotifier alloc] sendNotification:@"New TCC permissions detected" withSubtitle:@"Terminal has been given access to your documents, control for how long here!"];
     [self requestNotifications];
     
     // Set the activation policy to NSApplicationActivationPolicyAccessory when the app starts

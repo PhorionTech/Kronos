@@ -1,9 +1,9 @@
-
+//
 //  XPCExt.m
 //  TCCKronosExtension
-
-
-
+//
+//  Created by Luke Roberts on 12/09/2023.
+//
 
 
 #import "XPCExt.h"
@@ -31,6 +31,10 @@
         _tccHelper = [TCCHelper shared];
     }
     return self;
+}
+
+- (void)checkSysExtVersionWithReply:(void (^)(NSString * _Nonnull))reply {
+    reply([[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]);
 }
 
 - (void)checkFDAWithReply:(void (^)(BOOL))reply {
