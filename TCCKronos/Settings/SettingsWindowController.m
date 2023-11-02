@@ -71,6 +71,7 @@
 
 - (IBAction)installSystemExtension:(id)sender {
     [_installExtension install];
+    [self loadViewSetup:nil];
 }
 
 - (IBAction)configureFDA:(id)sender {
