@@ -21,13 +21,19 @@
 @implementation SettingsWindowController {
     NSArray<NSButton*>* _viewButtons;
     NSFileManager* _fileManager;
+    NSDictionary* _tagToSettingMap;
     NSView* _currentView;
     DispatchTimer* _viewRefresh;
     InstallExtension* _installExtension;
-
 }
 
+
 - (void)windowDidLoad {
+    _tagToSettingMap = @{
+        @(301): @"KronosESFTamperingDetectionEnabled",
+        @(302): @"KronosSentryTelemetryEnabled",
+        @(303): @"KronosSparkleAutoUpdateEnabled"
+    };
         
     _viewButtons = @[
         _setupButton,
@@ -180,9 +186,16 @@
 
 }
 
+- (IBAction)loadViewSettings:(id)sender {
+    [self loadView:_settingsView toggleButton:_settingsButton];
+}
+
 - (IBAction)loadViewAbout:(id)sender {
-    
     [self loadView:_aboutView toggleButton:_aboutButton];
+}
+
+- (IBAction)toggleSetting:(NSButton*)sender {
+    NSLog(@"Toggle setting '%@' to %d", [_tagToSettingMap objectForKey:@(sender.tag)], sender.intValue);
 }
 
 // on window close

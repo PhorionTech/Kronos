@@ -16,9 +16,11 @@
 
 int main(int argc, char *argv[])
 {
+#ifndef DEBUG
     [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
          options.dsn = @"https://86f546f1a17194f700e2dd67d14fa3f4@o4505983381078016.ingest.sentry.io/4505985741357056";
      }];
+#endif
     
     DatabaseController* db = [[DatabaseController alloc] init];
     

@@ -26,6 +26,15 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // Register a default set of values for UserDefaults
+    NSDictionary *appDefaults = @{
+        @"KronosESFTamperingDetectionEnabled": @YES,
+        @"KronosSentryTelemetryEnabled": @YES,
+        @"KronosSparkleAutoUpdateEnabled": @YES
+    };
+
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    
 #ifndef DEBUG
     if ([[[NSBundle mainBundle] bundlePath] hasPrefix:@"/Applications"] == NO) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -38,11 +47,11 @@
      
         [[NSApplication sharedApplication] terminate:self];
     }
-#endif
     
     [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
          options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
      }];
+#endif
     
     _statusBarController = [[StatusBar alloc] init:self.statusMenu];
     
