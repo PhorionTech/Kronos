@@ -24,6 +24,21 @@
     }
     
     _bundles = [Bundle bundlesFromIdentifier:self.bundleId];
+    
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:now];
+
+    // Set the time to one second before midnight.
+    [components setHour:23];
+    [components setMinute:59];
+    [components setSecond:59];
+
+    NSDate *endOfDay = [calendar dateFromComponents:components];
+    
+    [self.datePicker setDateValue:endOfDay];
+
 }
 
 //on window close

@@ -51,13 +51,13 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView identifier="cellData" id="gCu-yu-JFi">
-                                                    <rect key="frame" x="8" y="0.0" width="162" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <rect key="frame" x="8" y="0.0" width="38" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="105" translatesAutoresizingMaskIntoConstraints="NO" id="0O6-qu-5fj">
-                                                            <rect key="frame" x="0.0" y="13" width="162" height="16"/>
+                                                            <rect key="frame" x="0.0" y="13" width="38" height="16"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="QXZ-WB-0er">
+                                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="QXZ-WB-0er">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -69,13 +69,13 @@
                                                     </connections>
                                                 </tableCellView>
                                                 <tableCellView identifier="serviceCellData" id="fcH-Cy-12P">
-                                                    <rect key="frame" x="8" y="41" width="162" height="41"/>
+                                                    <rect key="frame" x="8" y="41" width="38" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="105" translatesAutoresizingMaskIntoConstraints="NO" id="GjL-b2-vAS">
-                                                            <rect key="frame" x="0.0" y="13" width="162" height="16"/>
+                                                            <rect key="frame" x="0.0" y="13" width="38" height="16"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="bsM-HH-3Ag">
+                                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="bsM-HH-3Ag">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" red="0.30980392159999998" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

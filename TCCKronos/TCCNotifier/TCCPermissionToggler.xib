@@ -77,12 +77,12 @@
                         </connections>
                     </button>
                     <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwO-F9-SmW">
-                        <rect key="frame" x="237" y="48" width="164" height="28"/>
+                        <rect key="frame" x="237" y="48" width="276" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" useCurrentDate="YES" id="Iim-LG-dRn">
                             <font key="font" metaFont="system"/>
-                            <date key="date" timeIntervalSinceReferenceDate="720625062.231251">
-                                <!--2023-11-02 13:37:42 +0000-->
+                            <date key="date" timeIntervalSinceReferenceDate="720628989.58252394">
+                                <!--2023-11-02 14:43:09 +0000-->
                             </date>
                             <color key="backgroundColor" name="WindowBackground"/>
                             <color key="textColor" red="0.30980392159999998" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
