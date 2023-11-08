@@ -24,20 +24,6 @@
     }
     
     _bundles = [Bundle bundlesFromIdentifier:self.bundleId];
-    
-    NSDate *now = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:now];
-
-    // Set the time to one second before midnight.
-    [components setHour:23];
-    [components setMinute:59];
-    [components setSecond:59];
-
-    NSDate *endOfDay = [calendar dateFromComponents:components];
-    
-    [self.datePicker setDateValue:endOfDay];
 
 }
 
@@ -82,15 +68,24 @@
     NSString* value = nil;
     NSString* identifier = nil;
     
-    // If the condition is time based, pull the value of the date picker
-    if ([condition isEqual: @"time"]) {
-        NSDate *date = [self.datePicker dateValue];
-        value = formatDateWithDate(date);
+    NSNumber* number;
+    
+    BOOL success=[_intervalFormatter getObjectValue: &number forString: [_intervalValue stringValue] errorDescription:nil];
+    
+    // If the interval value is a number
+    if (success) {
+        // If the condition is time based, pull the value of the date picker
+        if ([condition isEqual: @"time"]) {
+            int *intervalValue = self.intervalValue.intValue;
+            //value = formatDateWithDate(date);
+        }
+        
+        [[XPCConnection shared] addCondition:condition withValue:value withIdentifier:identifier forService:self.permission forApp:self.bundleId];
+        
+        [self close];
+    } else {
+        NSLog(@"There is no number");
     }
-    
-    [[XPCConnection shared] addCondition:condition withValue:value withIdentifier:identifier forService:self.permission forApp:self.bundleId];
-    
-    [self close];
 }
 
 

@@ -18,6 +18,8 @@
 @property (strong) NSString* permission;
 @property (strong) IBOutlet NSTextField *appTitle;
 @property (strong) IBOutlet NSTextField *permissionTitle;
-@property (strong) IBOutlet NSDatePicker *datePicker;
+@property (strong) IBOutlet NSTextField *intervalValue;
+@property (strong) IBOutlet NSPopUpButton *intervalType;
+@property (strong) IBOutlet NSNumberFormatter *intervalFormatter;
 
 @end
