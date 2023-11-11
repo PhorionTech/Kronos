@@ -68,23 +68,68 @@
     NSString* value = nil;
     NSString* identifier = nil;
     
-    NSNumber* number;
+    // Grab the time unit that the user has selected
+    int intervalType = [_intervalType indexOfSelectedItem];
+
+    NSDate *now = [NSDate date];
+        
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
+
+    NSDate *newDate = [calendar dateByAddingComponents:componentsToAdd toDate:now options:0];
     
-    BOOL success=[_intervalFormatter getObjectValue: &number forString: [_intervalValue stringValue] errorDescription:nil];
+    _intervalFormatter = [[NSNumberFormatter alloc] init];
+    NSNumber *number = [_intervalFormatter numberFromString:[_intervalValue stringValue]];
     
-    // If the interval value is a number
-    if (success) {
-        // If the condition is time based, pull the value of the date picker
-        if ([condition isEqual: @"time"]) {
-            int *intervalValue = self.intervalValue.intValue;
-            //value = formatDateWithDate(date);
+    // Only accept numbers
+    if (number != nil) {
+        
+        int intValue = [number intValue];
+        
+        NSLog(@"%@ is a number.", number.description);
+        
+        switch (intervalType) {
+            
+            // 0 for Minutes
+            case 0:
+                [componentsToAdd setMinute:intValue];
+                break;
+            // 1 for Hours
+            case 1:
+                [componentsToAdd setHour:intValue];
+                break;
+            // 2 for Days
+            case 2:
+                [componentsToAdd setDay:intValue];
+                break;
+            // 3 for Weeks
+            case 3:
+                [componentsToAdd setDay:intValue*7];
+                break;
+            // 4 for Months
+            case 4:
+                [componentsToAdd setMonth:intValue];
+                break;
+            // 5 for Years
+            case 5:
+                [componentsToAdd setYear:intValue];
+                break;
+
+            default:
+                NSLog(@"Invalid interval type");
+                break;
         }
+        
+        NSDate *newDate = [calendar dateByAddingComponents:componentsToAdd toDate:now options:0];
+        
+        value = formatDateWithDate(newDate);
+
         
         [[XPCConnection shared] addCondition:condition withValue:value withIdentifier:identifier forService:self.permission forApp:self.bundleId];
         
         [self close];
     } else {
-        NSLog(@"There is no number");
+        NSLog(@"Invalid number provided.");
     }
 }
 

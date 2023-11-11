@@ -57,7 +57,7 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9d-N5-kb2" userLabel="Loading Overlay" customClass="NSVisualEffectView">
-                        <rect key="frame" x="250" y="159" width="180" height="100"/>
+                        <rect key="frame" x="270" y="159" width="180" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="maX-vc-t7e">
