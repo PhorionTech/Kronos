@@ -368,12 +368,9 @@
                 // Check if the string exists within any permissions
                 else if ([value isKindOfClass:[NSArray class]]) {
                     for (NSDictionary* permission in value) {
-                        for (NSString* permission_key in permission) {
-                            NSString* permission_value = [permission valueForKey:permission_key];
-                    
-                            if ([permission_value isKindOfClass:[NSString class]] && [[permission_value lowercaseString] containsString:searchString]) {
-                                return YES;
-                            }
+                        NSString* service = [[permission valueForKey:@"service"] lowercaseString];
+                        if ([service containsString:searchString]) {
+                            return YES;
                         }
                     }
                 }
