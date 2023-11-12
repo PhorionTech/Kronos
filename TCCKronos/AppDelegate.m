@@ -48,9 +48,11 @@
         [[NSApplication sharedApplication] terminate:self];
     }
     
-    [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-         options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
-     }];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"KronosSentryTelemetryEnabled"]) {
+        [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
+             options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
+         }];
+    }
 #endif
     
     _statusBarController = [[StatusBar alloc] init:self.statusMenu];
@@ -136,6 +138,7 @@
     // Once the window has loaded, we change the activation policy
     [self setActivationPolicy];
 }
+
 - (IBAction)quitApp:(id)sender {
     // Seeya
     [NSApplication.sharedApplication terminate:self];

@@ -187,6 +187,18 @@
 }
 
 - (IBAction)loadViewSettings:(id)sender {
+    NSUserDefaults* appDefaults = [NSUserDefaults standardUserDefaults];
+    
+    for (NSNumber* key in _tagToSettingMap) {
+        NSNumber* value = [appDefaults valueForKey:_tagToSettingMap[key]];
+        
+        if (value != nil) {
+            NSButton* settingButton = [_settingsView viewWithTag:[key integerValue]];
+            
+            [settingButton setIntValue:[value boolValue]];
+        }
+    }
+    
     [self loadView:_settingsView toggleButton:_settingsButton];
 }
 
@@ -196,6 +208,7 @@
 
 - (IBAction)toggleSetting:(NSButton*)sender {
     NSLog(@"Toggle setting '%@' to %d", [_tagToSettingMap objectForKey:@(sender.tag)], sender.intValue);
+    [[NSUserDefaults standardUserDefaults] setObject:@(sender.intValue) forKey:[_tagToSettingMap objectForKey:@(sender.tag)]];
 }
 
 // on window close
