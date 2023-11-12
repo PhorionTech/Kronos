@@ -56,8 +56,7 @@
      void (^eventHandler)(OSLogEventProxy* event) = ^void(OSLogEventProxy* event) {
 
          //Return the raw event
-         NSLog(@"%@", event);
-//         callback([[TCCLog alloc] init:logEntry]);
+         callback([[TCCLog alloc] init:event]);
      };
 
      //get 'OSLogEventLiveStream' class
