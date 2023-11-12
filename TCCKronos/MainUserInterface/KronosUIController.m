@@ -150,8 +150,11 @@
     _sortedPermissions = [NSMutableArray new];
     
     NSArray *apps = [_tccPermissions valueForKeyPath:@"@distinctUnionOfObjects.client"];
-    for (NSString *appId in apps)
-    {
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_apply([apps count], queue, ^(size_t i) {
+        
+        NSString *appId = apps[i];
         NSMutableArray *entry = [NSMutableArray new];
         NSMutableDictionary *appEntry = [NSMutableDictionary new];
         Bundle* target = [self getBundle:appId];
@@ -174,7 +177,7 @@
         }
         [_sortedPermissions addObject:appEntry];
         
-    }
+    });
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"app_name" ascending:YES];
     [_sortedPermissions sortUsingDescriptors:@[sortDescriptor]];
