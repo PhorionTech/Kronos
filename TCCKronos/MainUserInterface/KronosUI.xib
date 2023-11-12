@@ -142,14 +142,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PP-YK-4LM">
-                    <rect key="frame" x="0.0" y="27" width="738" height="343"/>
+                    <rect key="frame" x="0.0" y="27" width="738" height="334"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" drawsBackground="NO" id="JWp-k8-ib2">
-                        <rect key="frame" x="1" y="1" width="736" height="341"/>
+                        <rect key="frame" x="1" y="1" width="736" height="332"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="13" outlineTableColumn="YKj-Xr-Dqt" id="zz5-bK-r6g">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="341"/>
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="332"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="17" height="0.0"/>
                                 <color key="backgroundColor" name="WindowBackground"/>
@@ -311,21 +311,22 @@
                     </scroller>
                 </scrollView>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N2K-7H-IY5">
-                    <rect key="frame" x="356" y="-2" width="21" height="28.5"/>
+                    <rect key="frame" x="709" y="365" width="19" height="25.5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshFreestandingTemplate" imagePosition="only" alignment="center" controlSize="mini" imageScaling="proportionallyUpOrDown" inset="2" id="Gdr-Il-Fmf">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="miniSystem"/>
                     </buttonCell>
+                    <color key="bezelColor" name="WindowBackground"/>
                     <color key="contentTintColor" red="0.30980392159999998" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="refreshPermissions:" target="-2" id="Pbk-KX-gRm"/>
                     </connections>
                 </button>
                 <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYo-zr-PG0">
-                    <rect key="frame" x="0.0" y="368" width="738" height="22"/>
+                    <rect key="frame" x="457" y="367" width="244" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="4gf-4E-LzP">
+                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="4gf-4E-LzP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="WindowBackground"/>
