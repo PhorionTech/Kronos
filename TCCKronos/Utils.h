@@ -20,5 +20,7 @@ NSBundle* findAppBundle(NSString* path);
 NSImage* getIconForProcess(NSString* path);
 NSImage* getIconForBundle(NSBundle* bundle);
 NSString* getConsoleUser(void);
+NSString* stringFromAuthReason(int);
+NSString* stringFromAuthValue(int);
 
 #endif /* Utils_h */

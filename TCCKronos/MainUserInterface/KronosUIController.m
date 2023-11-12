@@ -311,8 +311,17 @@
             
             // Permission name
             ((NSTextField*)[cell viewWithTag:100]).stringValue = [item valueForKey:@"service"];
+            
+            // Auth value
+            NSString* friendlyValue = stringFromAuthValue([[item valueForKey:@"auth_value"] intValue]);
+            [((NSTextField*)[cell viewWithTag:101]) setToolTip:friendlyValue];
             ((NSTextField*)[cell viewWithTag:101]).stringValue = [item valueForKey:@"auth_value"];
+            
+            // Auth reason
+            NSString* friendlyReason = stringFromAuthReason([[item valueForKey:@"auth_reason"] intValue]);
+            [((NSTextField*)[cell viewWithTag:102]) setToolTip:friendlyReason];
             ((NSTextField*)[cell viewWithTag:102]).stringValue = [item valueForKey:@"auth_reason"];
+            
             ((NSTextField*)[cell viewWithTag:103]).stringValue = last_modified;
             [((NSButton*)[cell viewWithTag:106]) setAction:@selector(createCondition:)];
 
