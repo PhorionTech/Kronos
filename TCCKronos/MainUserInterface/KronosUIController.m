@@ -17,10 +17,13 @@
 @implementation KronosUIController {
     NSArray* _tccPermissions;
     NSMutableArray* _sortedPermissions;
+    NSMutableArray* _unfilteredPermissions;
     NSArray* _permissionsByApp;
 }
 
 - (void)windowDidLoad {
+    
+    [_searchField setAction:@selector(searchFieldDidChange:)];
 
     _tccPermissions = [[XPCConnection shared] tccSelectAll];
     
@@ -176,6 +179,8 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"app_name" ascending:YES];
     [_sortedPermissions sortUsingDescriptors:@[sortDescriptor]];
     
+    // We want to keep a replica to revert back to after filtering
+    _unfilteredPermissions = _sortedPermissions;
     return _sortedPermissions;
 }
 
@@ -339,6 +344,51 @@
     else {
         [self createCondition:selectedRow];
     }
+}
+
+- (void)searchFieldDidChange:(NSSearchField *)searchField {
+    [self refreshOutlineView];
+}
+
+- (void)refreshOutlineView {
+    // Here we are going to refresh the items displayed based on the user's search
+    
+    NSString* searchString = [self.searchField.stringValue lowercaseString];
+    
+    if (self.searchField.stringValue.length > 0) {
+
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            // First check to see if the parent row contains the string
+            NSDictionary *dictionary = (NSDictionary *)evaluatedObject;
+            for (NSString *key in dictionary) {
+                id value = dictionary[key];
+                if ([value isKindOfClass:[NSString class]] && [[value lowercaseString] containsString:searchString]) {
+                    return YES;
+                }
+                // Check if the string exists within any permissions
+                else if ([value isKindOfClass:[NSArray class]]) {
+                    for (NSDictionary* permission in value) {
+                        for (NSString* permission_key in permission) {
+                            NSString* permission_value = [permission valueForKey:permission_key];
+                    
+                            if ([permission_value isKindOfClass:[NSString class]] && [[permission_value lowercaseString] containsString:searchString]) {
+                                return YES;
+                            }
+                        }
+                    }
+                }
+            }
+            return NO;
+        }];
+        
+        // filter based on our searching predicate
+        _sortedPermissions = [_unfilteredPermissions filteredArrayUsingPredicate:predicate];
+    }
+    else {
+        _sortedPermissions = _unfilteredPermissions;
+    }
+    
+    [self.outlineView reloadData];
 }
 
 - (IBAction)openAppUsage:(id)sender {
