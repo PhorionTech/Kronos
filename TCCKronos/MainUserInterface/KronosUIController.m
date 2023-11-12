@@ -159,15 +159,23 @@
             NSString *name = [appNames objectAtIndex:i];
             [entry addObject:name];
         }
-
+        
+        [appEntry setObject:appId forKey:@"app_name"];
         [appEntry setObject:appId forKey:@"app_client"];
         [appEntry setObject:entry forKey:@"app_permissions"];
         if (target) {
+            if (target.name != nil){
+                [appEntry setValue:target.name forKey:@"app_name"];
+            }
             [appEntry setObject:target forKey:@"app_bundle"];
         }
         [_sortedPermissions addObject:appEntry];
-    }
         
+    }
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"app_name" ascending:YES];
+    [_sortedPermissions sortUsingDescriptors:@[sortDescriptor]];
+    
     return _sortedPermissions;
 }
 
@@ -220,7 +228,7 @@
 -(BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
     // We only want to expand the root items, which contain app_name, app_permissions and maybe app_bundle
-    return ([item count] <= 3);
+    return ([item count] <= 4);
 }
 
 //return child
@@ -240,23 +248,19 @@
     [defaultIcon setSize:NSMakeSize(128, 128)];
     
     if (tableColumn == self.outlineView.tableColumns[0]) {
-        if([item count] <= 3) {
+        if([item valueForKey:@"app_name"]) {
             // Root (App)
             NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"appCell" owner:nil];
             NSImageView* appIcon = [cell viewWithTag:109];
             NSImageView* signedIcon = [cell viewWithTag:187];
-            NSString* appIdentifier = [item valueForKey:@"app_client"];
             
             [signedIcon setImage:nil];
             [appIcon setImage:defaultIcon];
-            cell.textField.stringValue = appIdentifier;
+            cell.textField.stringValue = [item valueForKey:@"app_name"];
             
             Bundle* target = [item valueForKey:@"app_bundle"];
             
             if (target != nil) {
-                if (target.name != nil) {
-                    cell.textField.stringValue = target.name;
-                }
                 
                 [appIcon setImage:target.icon];
                 NSDictionary* signingInfo = [target signingInfo];
@@ -291,7 +295,6 @@
             }
        
             [((NSButton*)[cell viewWithTag:104]) setAction:@selector(openAppUsage:)];
-            [((NSButton*)[cell viewWithTag:106]) setAction:@selector(createCondition:)];
             
             return cell;
         }
@@ -306,6 +309,8 @@
             ((NSTextField*)[cell viewWithTag:101]).stringValue = [item valueForKey:@"auth_value"];
             ((NSTextField*)[cell viewWithTag:102]).stringValue = [item valueForKey:@"auth_reason"];
             ((NSTextField*)[cell viewWithTag:103]).stringValue = last_modified;
+            [((NSButton*)[cell viewWithTag:106]) setAction:@selector(createCondition:)];
+
 
             return cell;
         }
@@ -322,7 +327,7 @@
     NSDictionary* selectedRow = [self.outlineView itemAtRow:self.outlineView.selectedRow];
     
     // Expand parent row
-    if ([selectedRow count] <= 3) {
+    if ([selectedRow count] <= 4) {
         // toggle expand
         if ([self.outlineView isItemExpanded:selectedRow]) {
             [self.outlineView collapseItem:selectedRow];
