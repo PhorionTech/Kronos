@@ -14,9 +14,33 @@
 
 - (void)windowDidLoad {
     
-    // We are passing the application name when opening this window
-    _appUsage = [[XPCConnection shared] dbUsageForApp:_applicationBundleName];//self.application];
     [[self window] setTitle:_application];
+    
+    _loadingSpinnerView.wantsLayer = YES;
+    _loadingSpinnerView.layer.cornerRadius = 20.0;
+    [_loadingSpinnerView setMaterial:NSVisualEffectMaterialSidebar];
+    _loadingSpinnerView.hidden = NO;
+    [_loadingSpinner startAnimation:nil];
+
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    dispatch_async(queue, ^{
+        // We are passing the application name when opening this window
+        _appUsage = [[XPCConnection shared] dbUsageForApp:_applicationBundleName];
+        
+        // Once the permissions have been loaded refresh the outline view
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+                [self.tableView beginUpdates];
+                [self.tableView reloadData];
+                [self.tableView endUpdates];
+                
+                _loadingSpinnerView.hidden = YES;
+            });
+        });
+    });
 }
 
 //on window close
