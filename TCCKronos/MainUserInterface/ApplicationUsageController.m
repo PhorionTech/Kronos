@@ -62,7 +62,7 @@
     NSTableCellView* cell;
     
     // Ensure the right formatting for the service cell
-    if (tableColumn == self.tableView.tableColumns[1]) {
+    if (tableColumn == self.tableView.tableColumns[1] || tableColumn == self.tableView.tableColumns[6]) {
         cell = [tableView makeViewWithIdentifier:@"serviceCellData" owner:self];
     }
     else {
@@ -85,8 +85,16 @@
     else if (tableColumn == self.tableView.tableColumns[3]) {
         cell.textField.stringValue = [dataItem valueForKey:@"accessingPath"];
     }
-    // result
+    // responsible identifier
     else if (tableColumn == self.tableView.tableColumns[4]) {
+        cell.textField.stringValue = [dataItem valueForKey:@"responsibleIdentifier"];
+    }
+    // responsible path
+    else if (tableColumn == self.tableView.tableColumns[5]) {
+        cell.textField.stringValue = [dataItem valueForKey:@"responsiblePath"];
+    }
+    // result
+    else if (tableColumn == self.tableView.tableColumns[6]) {
         cell.textField.stringValue = [dataItem valueForKey:@"didResult"];
     }
 
