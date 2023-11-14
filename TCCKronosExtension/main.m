@@ -17,7 +17,8 @@
 int main(int argc, char *argv[])
 {
     [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-         options.dsn = @"https://86f546f1a17194f700e2dd67d14fa3f4@o4505983381078016.ingest.sentry.io/4505985741357056";
+        options.dsn = @"https://86f546f1a17194f700e2dd67d14fa3f4@o4505983381078016.ingest.sentry.io/4505985741357056";
+        options.enableAppHangTracking = NO;
      }];
     
     DatabaseController* db = [[DatabaseController alloc] init];
@@ -28,30 +29,20 @@ int main(int argc, char *argv[])
     XPCListener* xpc = [[XPCListener alloc] initWithDatabase:db revocationService:revocationService];
     ESFClient* esfClient = [[ESFClient alloc] initWithXPC:xpc];
     
-    DispatchTimer* unifiedLogTimer = [[DispatchTimer alloc]
-        initWithInterval:1 * NSEC_PER_SEC
-               tolorance:1 * NSEC_PER_SEC
-                   queue:dispatch_get_main_queue()
-                   block:^{
-                        [unifiedLog retrieveLatestEvents:^(TCCLog * _Nonnull log) {
-                            if ([log.type isEqualToString:@"REQUEST"] && ![log.function isEqualToString:@"TCCAccessRequest"]) {
-                                return;
-                            }
-                            
-                            [db writeTCCLogToDatabase:log];
+    [unifiedLog startEventStream:^(TCCLog * _Nonnull log) {
+         if ([log.type isEqualToString:@"REQUEST"] && ![log.function isEqualToString:@"TCCAccessRequest"]) {
+             return;
+         }
 
-                            
-                            if ([log.type isEqualToString:@"AUTHREQ_PROMPTING"]) {
-                                [xpc sendPromptingNotification:@{
-                                    @"msgID": log.msgID
-                                }];
-                            }
-                        }];
-                   }];
+         [db writeTCCLogToDatabase:log];
 
-    [unifiedLogTimer start];
+         if ([log.type isEqualToString:@"AUTHREQ_PROMPTING"]) {
+             [xpc sendPromptingNotification:@{
+                 @"msgID": log.msgID
+             }];
+         }
+    }];
     
-
     dispatch_main();
 
     return 0;

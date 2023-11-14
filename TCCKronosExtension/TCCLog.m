@@ -13,7 +13,7 @@
 
 @implementation TCCLog
 
-- (instancetype)init:(OSLogEntry*)log
+- (instancetype)init:(id)log
 {
     self = [super init];
     if (self) {

@@ -7,8 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class OSLogEntry;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TCCLog : NSObject
@@ -22,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSMutableDictionary* data;
 
-- (id)init:(OSLogEntry*)log;
+- (id)init:(id)log;
 - (id)initFromString:(NSString*)message;
 
 @end
