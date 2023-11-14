@@ -36,6 +36,7 @@
 		79F9BC832ACB7FF8009220D0 /* TCCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEB82AB3B2510021A8ED /* TCCHelper.m */; };
 		79F9BC852ACE0053009220D0 /* ApplicationUsage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F9BC842ACE0053009220D0 /* ApplicationUsage.xib */; };
 		CC719E1BAC57E0BF915CAA36 /* Pods_TCCKronosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A836C3F3EE29C4B4EAFE98 /* Pods_TCCKronosTests.framework */; };
+		D72CB7CA2B040A8200E74BCE /* SettingsReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = D72CB7C92B040A8200E74BCE /* SettingsReceiver.m */; };
 		F53D062B2AD774E200A201C3 /* io.phorion.kronos.plist in Resources */ = {isa = PBXBuildFile; fileRef = F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */; };
 		F53D062D2AD775A500A201C3 /* io.phorion.kronos.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */; };
 		F54FC5DE2AD00B3300DCEC7B /* Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F54FC5DD2AD00B3300DCEC7B /* Bundle.m */; };
@@ -152,6 +153,8 @@
 		9E6A023D02D2109D922FC6EA /* Pods-TCCKronosExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosExtension.release.xcconfig"; path = "Target Support Files/Pods-TCCKronosExtension/Pods-TCCKronosExtension.release.xcconfig"; sourceTree = "<group>"; };
 		A7C490B56A9643FE0D4E569B /* Pods-TCCKronosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosTests.release.xcconfig"; path = "Target Support Files/Pods-TCCKronosTests/Pods-TCCKronosTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4CDC7089C059C0F42A45F5D /* Pods_TCCKronosExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TCCKronosExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72CB7C82B040A8200E74BCE /* SettingsReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsReceiver.h; sourceTree = "<group>"; };
+		D72CB7C92B040A8200E74BCE /* SettingsReceiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsReceiver.m; sourceTree = "<group>"; };
 		F00288995A8B3AC7C87FE455 /* Pods-TCCKronos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronos.release.xcconfig"; path = "Target Support Files/Pods-TCCKronos/Pods-TCCKronos.release.xcconfig"; sourceTree = "<group>"; };
 		F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = io.phorion.kronos.plist; sourceTree = "<group>"; };
 		F54FC5DC2AD00B3300DCEC7B /* Bundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bundle.h; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 				79A4AF842AC384BB009B2C44 /* TCCUtilHelper.h */,
 				F5B59A962AD2EC7A0025DD12 /* RevocationService.h */,
 				F5B59A972AD2EC7A0025DD12 /* RevocationService.m */,
+				D72CB7C82B040A8200E74BCE /* SettingsReceiver.h */,
+				D72CB7C92B040A8200E74BCE /* SettingsReceiver.m */,
 			);
 			path = TCCKronosExtension;
 			sourceTree = "<group>";
@@ -701,6 +706,7 @@
 				F5AAC5F62AB7604F0066C910 /* TCCLog.m in Sources */,
 				F5CBDEB72AB08727001C9FC6 /* XPCListener.m in Sources */,
 				F5C848402AB09DB5009FC839 /* ConnectionVerifier.m in Sources */,
+				D72CB7CA2B040A8200E74BCE /* SettingsReceiver.m in Sources */,
 				F5C533E62AD6B74A00A86E8E /* TCCEventNotifier.m in Sources */,
 				F5B59A992AD2EC7A0025DD12 /* RevocationService.m in Sources */,
 				F5813E4A2AC45D2400E8598F /* DatabaseController.m in Sources */,

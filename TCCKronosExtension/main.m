@@ -11,17 +11,30 @@
 #include "TCCLog.h"
 #include "ESFClient.h"
 #include "RevocationService.h"
+#include "SettingsReceiver.h"
+#include "Constants.h"
 
 @import Sentry;
 
 int main(int argc, char *argv[])
 {
-#ifndef DEBUG
-    [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-         options.dsn = @"https://86f546f1a17194f700e2dd67d14fa3f4@o4505983381078016.ingest.sentry.io/4505985741357056";
-     }];
-#endif
+    NSDictionary *appDefaults = @{
+        SETTING_ESF: @YES,
+        SETTING_SENTRY: @YES,
+        SETTING_AUTO_UPDATE: @YES
+    };
+
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     
+#ifndef DEBUG
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:SETTING_SENTRY]) {
+        [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
+            options.dsn = @"https://86f546f1a17194f700e2dd67d14fa3f4@o4505983381078016.ingest.sentry.io/4505985741357056";
+            options.enableAppHangTracking = NO;
+        }];
+    }
+#endif
+
     DatabaseController* db = [[DatabaseController alloc] init];
     
     RevocationService* revocationService = [[RevocationService alloc] initWithDatabase:db];
@@ -29,6 +42,9 @@ int main(int argc, char *argv[])
     
     XPCListener* xpc = [[XPCListener alloc] initWithDatabase:db revocationService:revocationService];
     ESFClient* esfClient = [[ESFClient alloc] initWithXPC:xpc];
+    
+    SettingsReceiver* settingsReceiver = [[SettingsReceiver alloc] init];
+    [settingsReceiver setEsf:esfClient];
     
     DispatchTimer* unifiedLogTimer = [[DispatchTimer alloc]
         initWithInterval:1 * NSEC_PER_SEC
@@ -52,6 +68,19 @@ int main(int argc, char *argv[])
                    }];
 
     [unifiedLogTimer start];
+    
+    NSArray* keysToObserve = @[
+        SETTING_ESF,
+        SETTING_SENTRY
+    ];
+    
+    for (NSString* key in keysToObserve) {
+        [[NSUserDefaults standardUserDefaults] addObserver:settingsReceiver
+                                                forKeyPath:key
+                                                   options:NSKeyValueObservingOptionNew
+                                                   context:NULL];
+    }
+
     
 
     dispatch_main();

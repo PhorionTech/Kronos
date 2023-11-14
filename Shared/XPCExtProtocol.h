@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getUsageByMsgID:(NSString*)msgID withReply:(void (^)(NSDictionary*))reply;
 - (void)getConditionsWithReply:(nonnull void (^)(NSArray<NSDictionary *> * _Nonnull))reply;
 - (void)doRegister;
+- (void)setAppDefaults:(id)value forKey:(NSString*)key;
 
 @end
 

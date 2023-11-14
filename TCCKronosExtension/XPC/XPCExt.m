@@ -103,5 +103,9 @@
     NSLog(@"First method called!");
 }
 
+- (void)setAppDefaults:(id)value forKey:(NSString *)key {
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+}
+
 
 @end

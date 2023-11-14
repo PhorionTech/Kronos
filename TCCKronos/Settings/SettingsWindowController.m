@@ -30,9 +30,9 @@
 
 - (void)windowDidLoad {
     _tagToSettingMap = @{
-        @(301): @"KronosESFTamperingDetectionEnabled",
-        @(302): @"KronosSentryTelemetryEnabled",
-        @(303): @"KronosSparkleAutoUpdateEnabled"
+        @(301): SETTING_ESF,
+        @(302): SETTING_SENTRY,
+        @(303): SETTING_AUTO_UPDATE
     };
         
     _viewButtons = @[
@@ -209,6 +209,7 @@
 - (IBAction)toggleSetting:(NSButton*)sender {
     NSLog(@"Toggle setting '%@' to %d", [_tagToSettingMap objectForKey:@(sender.tag)], sender.intValue);
     [[NSUserDefaults standardUserDefaults] setObject:@(sender.intValue) forKey:[_tagToSettingMap objectForKey:@(sender.tag)]];
+    [[XPCConnection shared] setAppDefaults:@(sender.intValue) forKey:[_tagToSettingMap objectForKey:@(sender.tag)]];
 }
 
 // on window close

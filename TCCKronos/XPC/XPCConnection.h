@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSDictionary*>*)dbUsageForApp:(NSString*)appIdentifier;
 - (NSDictionary*)getUsageByMsgID:(NSString*)msgID;
 - (NSArray<NSDictionary*>*)getConditions;
+- (void)setAppDefaults:(id)value forKey:(NSString*)key;
 
 @end
 

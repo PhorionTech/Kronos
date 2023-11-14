@@ -11,12 +11,14 @@
 
 #include "XPCListener.h"
 #include "Utils.h"
+#include "Constants.h"
 
 #include <EndpointSecurity/EndpointSecurity.h>
 
 
 @implementation ESFClient {
     XPCListener* _xpc;
+    es_client_t* _client;
 }
 
 es_event_type_t events[] = {
@@ -29,25 +31,48 @@ es_event_type_t events[] = {
     self = [super init];
     if (self) {
         _xpc = xpc;
-        
-        es_client_t *client;
-        
-        es_new_client_result_t result = es_new_client(&client, ^(es_client_t *c, const es_message_t *msg) {
-            [self handleEvent:msg];
-        });
-    
-        if (result != ES_NEW_CLIENT_RESULT_SUCCESS) {
-            NSLog(@"Failed to create new ES client: %d", result);
-            return nil;
-        }
-    
-        if (es_subscribe(client, events, sizeof(events) / sizeof(events[0])) != ES_RETURN_SUCCESS) {
-            NSLog(@"Failed to subscribe to events");
-            es_delete_client(client);
-            return nil;
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:SETTING_ESF]) {
+            [self start];
         }
     }
     return self;
+}
+
+- (BOOL)start {
+    @synchronized(self) {
+        es_new_client_result_t result = es_new_client(&_client, ^(es_client_t *c, const es_message_t *msg) {
+            [self handleEvent:msg];
+        });
+        
+        if (result != ES_NEW_CLIENT_RESULT_SUCCESS) {
+            NSLog(@"Failed to create new ES client: %d", result);
+            return NO;
+        }
+        
+        if (es_subscribe(_client, events, sizeof(events) / sizeof(events[0])) != ES_RETURN_SUCCESS) {
+            NSLog(@"Failed to subscribe to events");
+            es_delete_client(_client);
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (BOOL)stop {
+    @synchronized(self) {
+        if (_client != NULL) {
+            if (es_unsubscribe_all(_client) != ES_RETURN_SUCCESS) {
+                return NO;
+            }
+            
+            if (es_delete_client(_client) != ES_RETURN_SUCCESS) {
+                return NO;
+            }
+        }
+    }
+    
+    return YES;
 }
 
 - (void)handleEvent:(const es_message_t*)message {
