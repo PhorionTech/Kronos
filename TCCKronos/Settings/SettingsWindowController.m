@@ -29,8 +29,8 @@
 
 
 - (void)windowDidLoad {    
-    _updater = [SPUUpdater sharedUpdater];
-    
+    _updater = [[((AppDelegate*)[[NSApplication sharedApplication] delegate]) updaterController] updater];
+
     _tagToSettingMap = @{
         @(301): SETTING_ESF,
         @(302): SETTING_SENTRY
