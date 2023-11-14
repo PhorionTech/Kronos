@@ -26,8 +26,12 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
     dispatch_async(queue, ^{
+        
+        NSArray<NSDictionary*>* _unsortedAppUsage = [[XPCConnection shared] dbUsageForApp:_applicationBundleName];
+
         // We are passing the application name when opening this window
-        _appUsage = [[XPCConnection shared] dbUsageForApp:_applicationBundleName];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO];
+        _appUsage = [_unsortedAppUsage sortedArrayUsingDescriptors:@[sortDescriptor]];
         
         // Once the permissions have been loaded refresh the outline view
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
