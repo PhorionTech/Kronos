@@ -213,6 +213,13 @@
     [[XPCConnection shared] setAppDefaults:@(sender.intValue) forKey:[_tagToSettingMap objectForKey:@(sender.tag)]];
 }
 
+- (IBAction)toggleSparkleAutoUpdate:(id)sender {
+    NSButton *checkbox = sender; // sender is the checkbox
+       BOOL isChecked = (checkbox.state == NSControlStateValueOn);
+       // Now, use Sparkle's SUUpdater to set your preference:
+       [_updater setAutomaticallyChecksForUpdates:isChecked];
+}
+
 // on window close
 // set activation policy
 // Thank you Objective-See!

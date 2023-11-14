@@ -301,6 +301,7 @@ Phorion is a company building specialised macOS security products for use in the
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
+                        <action selector="toggleSparkleAutoUpdate:" target="-2" id="F3i-Vc-OoP"/>
                         <binding destination="-2" name="value" keyPath="updater.automaticallyChecksForUpdates" id="Sv4-cP-HeK"/>
                     </connections>
                 </button>
