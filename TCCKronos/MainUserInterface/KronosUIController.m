@@ -252,7 +252,6 @@
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
     NSImage* defaultIcon = [[NSWorkspace sharedWorkspace]
                                     iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
-                            
     [defaultIcon setSize:NSMakeSize(128, 128)];
     
     if (tableColumn == self.outlineView.tableColumns[0]) {

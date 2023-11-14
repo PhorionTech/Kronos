@@ -28,6 +28,9 @@
 }
 
 - (void)windowDidLoad {
+    
+    // Set window level to be always in front
+    [[self window] setLevel:NSFloatingWindowLevel];
         
     _viewButtons = @[
         _setupButton,
