@@ -29,7 +29,7 @@
         <window title="Kronos Settings" separatorStyle="none" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="442" y="263" width="841" height="533"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1079"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="841" height="533"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -293,16 +293,13 @@ Phorion is a company building specialised macOS security products for use in the
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button tag="303" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tK3-l1-9iC">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tK3-l1-9iC">
                     <rect key="frame" x="333" y="40" width="337" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Automatically Check for Updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xvy-jA-RUF">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="toggleSetting:" target="-2" id="o2z-7d-UPZ"/>
-                    </connections>
                 </button>
             </subviews>
             <point key="canvasLocation" x="202" y="2139.5"/>
@@ -365,6 +362,7 @@ Phorion is a company building specialised macOS security products for use in the
             </items>
             <point key="canvasLocation" x="113" y="-88"/>
         </menu>
+        <userDefaultsController representsSharedInstance="YES" id="nDF-yI-Z1A"/>
     </objects>
     <resources>
         <image name="NSStatusNone" width="16" height="16"/>

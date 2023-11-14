@@ -20,8 +20,7 @@ int main(int argc, char *argv[])
 {
     NSDictionary *appDefaults = @{
         SETTING_ESF: @YES,
-        SETTING_SENTRY: @YES,
-        SETTING_AUTO_UPDATE: @YES
+        SETTING_SENTRY: @YES
     };
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];

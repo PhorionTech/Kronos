@@ -30,8 +30,7 @@
     // Register a default set of values for UserDefaults
     NSDictionary *appDefaults = @{
         SETTING_ESF: @YES,
-        SETTING_SENTRY: @YES,
-        SETTING_AUTO_UPDATE: @YES
+        SETTING_SENTRY: @YES
     };
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
@@ -112,7 +111,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 
-   if ([keyPath isEqualToString:SETTING_SENTRY]) {
+    if ([keyPath isEqualToString:SETTING_SENTRY]) {
 #ifndef DEBUG
         if ([object boolForKey:keyPath]) {
             [SentrySDK startWithConfigureOptions:^(SentryOptions * _Nonnull options) {

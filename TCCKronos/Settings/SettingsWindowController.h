@@ -2,7 +2,7 @@
 //  StartWindowController.h
 //  tcc-kronos
 
-
+#import "Sparkle/Sparkle.h"
 
 @import Cocoa;
 
@@ -21,5 +21,7 @@
 @property (strong) IBOutlet NSImageView* sysExtStatusIcon;
 @property (strong) IBOutlet NSImageView* fdaStatusIcon;
 @property (strong) IBOutlet NSImageView* launchDaemonStatusIcon;
+
+@property SPUUpdater* updater;
 
 @end

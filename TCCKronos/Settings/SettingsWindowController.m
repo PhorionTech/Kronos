@@ -28,11 +28,12 @@
 }
 
 
-- (void)windowDidLoad {
+- (void)windowDidLoad {    
+    _updater = [SPUUpdater sharedUpdater];
+    
     _tagToSettingMap = @{
         @(301): SETTING_ESF,
-        @(302): SETTING_SENTRY,
-        @(303): SETTING_AUTO_UPDATE
+        @(302): SETTING_SENTRY
     };
         
     _viewButtons = @[
