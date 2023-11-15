@@ -28,8 +28,14 @@
 }
 
 
-- (void)windowDidLoad {    
-    _updater = [[((AppDelegate*)[[NSApplication sharedApplication] delegate]) updaterController] updater];
+- (void)windowDidLoad {
+    AppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
+    _updater = [[appDelegate updaterController] updater];
+    
+    BOOL autoUpdatesEnabled = [_updater automaticallyChecksForUpdates];
+    
+    [_autoUpdateCheckBox setState: autoUpdatesEnabled];
+    
 
     _tagToSettingMap = @{
         @(301): SETTING_ESF,
@@ -215,9 +221,9 @@
 
 - (IBAction)toggleSparkleAutoUpdate:(id)sender {
     NSButton *checkbox = sender; // sender is the checkbox
-       BOOL isChecked = (checkbox.state == NSControlStateValueOn);
-       // Now, use Sparkle's SUUpdater to set your preference:
-       [_updater setAutomaticallyChecksForUpdates:isChecked];
+    BOOL isChecked = (checkbox.state == NSControlStateValueOn);
+    // Now, use Sparkle's SUUpdater to set your preference:
+    [_updater setAutomaticallyChecksForUpdates:isChecked];
 }
 
 // on window close

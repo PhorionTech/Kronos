@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +11,7 @@
             <connections>
                 <outlet property="aboutButton" destination="Pdj-RM-22Q" id="FGY-Gs-qCy"/>
                 <outlet property="aboutView" destination="hji-Tk-Bxe" id="qvY-EU-0IT"/>
+                <outlet property="autoUpdateCheckBox" destination="xvy-jA-RUF" id="xPa-On-ZXG"/>
                 <outlet property="contentView" destination="GQg-Xr-ELH" id="bxQ-bA-wLM"/>
                 <outlet property="fdaStatusIcon" destination="7ar-3O-Tau" id="1ym-bC-nUq"/>
                 <outlet property="launchDaemonStatusIcon" destination="w4e-Nb-wBc" id="Jl5-iR-edb"/>
@@ -29,7 +29,7 @@
         <window title="Kronos Settings" separatorStyle="none" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="442" y="263" width="841" height="533"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="841" height="533"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -105,7 +105,7 @@
                     <rect key="frame" x="0.0" y="99" width="842" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="z3D-er-eSG">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="z3D-er-eSG">
                     <rect key="frame" x="297" y="245" width="463" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" alignment="left" id="M1T-og-1YD">
@@ -115,7 +115,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vg0-cA-ZM2">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vg0-cA-ZM2">
                     <rect key="frame" x="140" y="165" width="103" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Full Disk Access" id="zWd-S6-Aar">
@@ -124,7 +124,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VEW-CE-oFX">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VEW-CE-oFX">
                     <rect key="frame" x="297" y="141" width="463" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" alignment="left" id="6wT-Zl-uOy">
@@ -134,7 +134,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gy1-rv-3PQ">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gy1-rv-3PQ">
                     <rect key="frame" x="76" y="69" width="167" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="(Optional) Launch Daemon" id="Vcr-eK-KOM">
@@ -143,7 +143,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HDO-wB-koj">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HDO-wB-koj">
                     <rect key="frame" x="297" y="46" width="463" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" alignment="left" title="Configuring Kronos as a Launch Daemon means it will start with macOS. This is optional but highly recommended." id="HP4-FM-Rf8">
@@ -200,7 +200,7 @@
                         <action selector="configureFDA:" target="-2" id="PI1-zr-sKH"/>
                     </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GPc-ex-9qO">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="GPc-ex-9qO">
                     <rect key="frame" x="131" y="255" width="112" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="System Extension" id="JSz-Nz-K6r">
@@ -221,7 +221,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="phorion-logo" id="CQL-aA-AJ1"/>
                 </imageView>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="aAR-q8-GoI">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="aAR-q8-GoI">
                     <rect key="frame" x="358" y="93" width="404" height="208"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" id="4kX-rB-XvP">
@@ -244,7 +244,7 @@ Phorion is a company building specialised macOS security products for use in the
             <rect key="frame" x="0.0" y="0.0" width="842" height="253"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dHA-p7-SN0">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dHA-p7-SN0">
                     <rect key="frame" x="183" y="175" width="57" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Features" id="D4j-ez-Q1A">
@@ -253,8 +253,8 @@ Phorion is a company building specialised macOS security products for use in the
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Hbq-fu-fyC">
-                    <rect key="frame" x="165" y="108" width="75" height="16"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Hbq-fu-fyC">
+                    <rect key="frame" x="165" y="114" width="75" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Diagnostics" id="gc7-ww-Mhv">
                         <font key="font" metaFont="system"/>
@@ -262,8 +262,8 @@ Phorion is a company building specialised macOS security products for use in the
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button tag="301" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="POc-uq-29c">
-                    <rect key="frame" x="333" y="150" width="325" height="42"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" tag="301" translatesAutoresizingMaskIntoConstraints="NO" id="POc-uq-29c">
+                    <rect key="frame" x="333" y="174" width="495" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use Endpoint Security Framework to Detect TCC Database Tampering" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GDy-Xy-Qba">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -273,8 +273,8 @@ Phorion is a company building specialised macOS security products for use in the
                         <action selector="toggleSetting:" target="-2" id="DjE-Mp-q9x"/>
                     </connections>
                 </button>
-                <button tag="302" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hVz-Un-Eby">
-                    <rect key="frame" x="333" y="101" width="337" height="30"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" tag="302" translatesAutoresizingMaskIntoConstraints="NO" id="hVz-Un-Eby">
+                    <rect key="frame" x="333" y="107" width="337" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Automatically Report Crashes to Phorion (sentry.io)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Rwp-Rb-azb">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -284,8 +284,8 @@ Phorion is a company building specialised macOS security products for use in the
                         <action selector="toggleSetting:" target="-2" id="3cc-yU-6Zg"/>
                     </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="L14-A8-rxU">
-                    <rect key="frame" x="184" y="47" width="56" height="16"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="L14-A8-rxU">
+                    <rect key="frame" x="184" y="53" width="56" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Updates" id="avh-Pj-BxJ">
                         <font key="font" metaFont="system"/>
@@ -294,7 +294,7 @@ Phorion is a company building specialised macOS security products for use in the
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tK3-l1-9iC">
-                    <rect key="frame" x="333" y="40" width="337" height="30"/>
+                    <rect key="frame" x="333" y="46" width="337" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Automatically Check for Updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xvy-jA-RUF">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -328,7 +328,7 @@ Phorion is a company building specialised macOS security products for use in the
                     <autoresizingMask key="autoresizingMask"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="full-phorion-logo-blue" id="mSo-yF-2Ht"/>
                 </imageView>
-                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TFq-fm-vCK">
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TFq-fm-vCK">
                     <rect key="frame" x="204" y="83" width="434" height="57"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" selectable="YES" title="Welcome to Kronos! Let's get you started by heading over to app setup." id="Ku5-cA-ksv">

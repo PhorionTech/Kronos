@@ -21,6 +21,7 @@
 @property (strong) IBOutlet NSImageView* sysExtStatusIcon;
 @property (strong) IBOutlet NSImageView* fdaStatusIcon;
 @property (strong) IBOutlet NSImageView* launchDaemonStatusIcon;
+@property (strong) IBOutlet NSButtonCell *autoUpdateCheckBox;
 
 @property SPUUpdater* updater;
 
