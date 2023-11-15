@@ -34,4 +34,7 @@
 
 @property BOOL dataLoaded;
 
+@property (strong) IBOutlet NSSearchField *searchField;
+
+
 @end

@@ -13,15 +13,29 @@
 
 - (void)windowDidLoad {
     
+    // Set window level to be always in front
+    [[self window] setLevel:NSFloatingWindowLevel];
     
-    _permissionLabel.stringValue = [_tccEvent valueForKey:@"service"];
-    
-    _responsiblePID.stringValue = [_tccEvent valueForKey:@"responsiblePid"];
-    _responsibleIdentifier.stringValue = [_tccEvent valueForKey:@"responsibleIdentifier"];
-    _requestingPID.stringValue = [_tccEvent valueForKey:@"requestingPid"];
-    _requestingIdentifier.stringValue = [_tccEvent valueForKey:@"requestingIdentifier"];
-    _accessingPID.stringValue = [_tccEvent valueForKey:@"accessingPid"];
-    _accessingIdentifier.stringValue = [_tccEvent valueForKey:@"accessingIdentifier"];
+    NSString *service = [_tccEvent valueForKey:@"service"];
+    _permissionLabel.stringValue = (service != nil && [service isNotEqualTo:@""]) ? service : @"N/A";
+
+    NSString *responsiblePid = [_tccEvent valueForKey:@"responsiblePid"];
+    _responsiblePID.stringValue = (responsiblePid != nil && [responsiblePid isNotEqualTo:@""]) ? responsiblePid : @"N/A";
+
+    NSString *responsibleIdentifier = [_tccEvent valueForKey:@"responsibleIdentifier"];
+    _responsibleIdentifier.stringValue = (responsibleIdentifier != nil && [responsibleIdentifier isNotEqualTo:@""]) ? responsibleIdentifier : @"N/A";
+
+    NSString *requestingPid = [_tccEvent valueForKey:@"requestingPid"];
+    _requestingPID.stringValue = (requestingPid != nil && [requestingPid isNotEqualTo:@""]) ? requestingPid : @"N/A";
+
+    NSString *requestingIdentifier = [_tccEvent valueForKey:@"requestingIdentifier"];
+    _requestingIdentifier.stringValue = (requestingIdentifier != nil && [requestingIdentifier isNotEqualTo:@""]) ? requestingIdentifier : @"N/A";
+
+    NSString *accessingPid = [_tccEvent valueForKey:@"accessingPid"];
+    _accessingPID.stringValue = (accessingPid != nil && [accessingPid isNotEqualTo:@""]) ? accessingPid : @"N/A";
+
+    NSString *accessingIdentifier = [_tccEvent valueForKey:@"accessingIdentifier"];
+    _accessingIdentifier.stringValue = (accessingIdentifier != nil && [accessingIdentifier isNotEqualTo:@""]) ? accessingIdentifier : @"N/A";
 
 }
 

@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong) NSString* permission;
 
 @property (strong) IBOutlet NSTableView *tableView;
+@property (strong) IBOutlet NSVisualEffectView *loadingSpinnerView;
+@property (strong) IBOutlet NSProgressIndicator *loadingSpinner;
 
 @end
 

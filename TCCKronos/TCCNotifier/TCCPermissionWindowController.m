@@ -24,6 +24,7 @@
     }
     
     _bundles = [Bundle bundlesFromIdentifier:self.bundleId];
+
 }
 
 //on window close
@@ -67,15 +68,69 @@
     NSString* value = nil;
     NSString* identifier = nil;
     
-    // If the condition is time based, pull the value of the date picker
-    if ([condition isEqual: @"time"]) {
-        NSDate *date = [self.datePicker dateValue];
-        value = formatDateWithDate(date);
+    // Grab the time unit that the user has selected
+    int intervalType = [_intervalType indexOfSelectedItem];
+
+    NSDate *now = [NSDate date];
+        
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
+
+    NSDate *newDate = [calendar dateByAddingComponents:componentsToAdd toDate:now options:0];
+    
+    _intervalFormatter = [[NSNumberFormatter alloc] init];
+    NSNumber *number = [_intervalFormatter numberFromString:[_intervalValue stringValue]];
+    
+    // Only accept numbers
+    if (number != nil) {
+        
+        int intValue = [number intValue];
+        
+        NSLog(@"%@ is a number.", number.description);
+        
+        switch (intervalType) {
+            
+            // 0 for Minutes
+            case 0:
+                [componentsToAdd setMinute:intValue];
+                break;
+            // 1 for Hours
+            case 1:
+                [componentsToAdd setHour:intValue];
+                break;
+            // 2 for Days
+            case 2:
+                [componentsToAdd setDay:intValue];
+                break;
+            // 3 for Weeks
+            case 3:
+                [componentsToAdd setDay:intValue*7];
+                break;
+            // 4 for Months
+            case 4:
+                [componentsToAdd setMonth:intValue];
+                break;
+            // 5 for Years
+            case 5:
+                [componentsToAdd setYear:intValue];
+                break;
+
+            default:
+                NSLog(@"Invalid interval type");
+                break;
+        }
+        
+        NSDate *newDate = [calendar dateByAddingComponents:componentsToAdd toDate:now options:0];
+        
+        value = formatDateWithDate(newDate);
+
+        
+        [[XPCConnection shared] addCondition:condition withValue:value withIdentifier:identifier forService:self.permission forApp:self.bundleId];
+        
+        [self close];
+    } else {
+        NSLog(@"Invalid number provided.");
     }
-    
-    [[XPCConnection shared] addCondition:condition withValue:value withIdentifier:identifier forService:self.permission forApp:self.bundleId];
-    
-    [self close];
 }
 
 
