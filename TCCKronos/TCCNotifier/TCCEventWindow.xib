@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,20 +36,20 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="phorion-logo" id="eFk-uC-4EP"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Awv-CT-3al">
-                        <rect key="frame" x="140" y="220" width="337" height="24"/>
+                        <rect key="frame" x="140" y="193" width="476" height="57"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" title="Permission" id="6o6-mq-2ed">
+                        <textFieldCell key="cell" title="kTCCServicePermission" id="6o6-mq-2ed">
                             <font key="font" metaFont="systemBold" size="20"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-Qt-cMb">
-                        <rect key="frame" x="114" y="209" width="405" height="5"/>
+                        <rect key="frame" x="114" y="198" width="405" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </box>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vF-aR-qyO" userLabel="Responsible PID">
-                        <rect key="frame" x="140" y="115" width="127" height="18"/>
+                        <rect key="frame" x="140" y="104" width="127" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="Responsible PID" id="eny-zZ-k5x" userLabel="Responsible PID">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -59,7 +58,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-Ti-5PK" userLabel="Responsible Path">
-                        <rect key="frame" x="141" y="89" width="183" height="18"/>
+                        <rect key="frame" x="141" y="78" width="183" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="Responsible Identifier" id="0qe-bf-esT" userLabel="Responsible Path">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -68,7 +67,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="2fI-4m-vHW">
-                        <rect key="frame" x="141" y="63" width="161" height="18"/>
+                        <rect key="frame" x="141" y="52" width="161" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="Accessing PID" id="5eB-Rk-bxh">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -77,7 +76,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="f4g-B7-Wi0" userLabel="Requesting Path">
-                        <rect key="frame" x="141" y="168" width="161" height="18"/>
+                        <rect key="frame" x="141" y="157" width="161" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="Requesting PID" id="mau-lM-ddQ">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -86,7 +85,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="Hi7-le-hEm" userLabel="Requesting Path">
-                        <rect key="frame" x="140" y="141" width="183" height="18"/>
+                        <rect key="frame" x="140" y="130" width="183" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="Requesting Identifier" id="utq-85-J6l">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -95,7 +94,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymJ-Yx-HTK">
-                        <rect key="frame" x="346" y="115" width="254" height="18"/>
+                        <rect key="frame" x="346" y="104" width="254" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="&lt;pid&gt;" id="57O-D0-TKr">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -104,7 +103,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDs-o2-7bN">
-                        <rect key="frame" x="345" y="87" width="255" height="18"/>
+                        <rect key="frame" x="345" y="76" width="255" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="&lt;identifier&gt;" id="Hwg-dT-qYB">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -113,7 +112,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="lUT-AI-F2k">
-                        <rect key="frame" x="346" y="63" width="254" height="18"/>
+                        <rect key="frame" x="346" y="52" width="254" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="&lt;pid&gt;" id="1Hc-76-afC">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -122,7 +121,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="xTb-Wn-sj5">
-                        <rect key="frame" x="346" y="37" width="254" height="18"/>
+                        <rect key="frame" x="346" y="26" width="254" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="&lt;identifier&gt;" id="SHg-wo-hLa">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -131,7 +130,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="mR7-En-qvL">
-                        <rect key="frame" x="347" y="168" width="253" height="18"/>
+                        <rect key="frame" x="347" y="157" width="253" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="&lt;pid&gt;" id="cDp-Qv-qko">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -140,7 +139,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="Ti0-WX-lyp">
-                        <rect key="frame" x="345" y="141" width="254" height="18"/>
+                        <rect key="frame" x="345" y="130" width="254" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="&lt;identifier&gt;" id="dG7-fS-7lo">
                             <font key="font" metaFont="systemLight" size="13"/>
@@ -149,7 +148,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="MTT-cK-Hcf">
-                        <rect key="frame" x="141" y="39" width="150" height="16"/>
+                        <rect key="frame" x="141" y="28" width="150" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" selectable="YES" title="Accessing Identifier" id="okw-uq-WuU">
                             <font key="font" metaFont="systemLight" size="13"/>

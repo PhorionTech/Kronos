@@ -228,7 +228,7 @@
                         <font key="font" usesAppearanceFont="YES"/>
                         <string key="title">Kronos is a tool by Phorion that augments Apple's in-built Transparency, Consent and Control system. 
 
-It was initially presented by Calum Hall (@_calhall) and Luke Roberts (@rookuu_) at OBTSv6 in their talk "The Clock is TCCing".
+It was initially presented by Calum Hall (@_calumhall) and Luke Roberts (@rookuu_) at OBTSv6 in their talk "The Clock is TCCing".
 
 It is FOSS, and released on GitHub at https://github.com/PhorionTech/kronos.
 

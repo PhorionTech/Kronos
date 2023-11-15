@@ -41,6 +41,9 @@
         @(301): SETTING_ESF,
         @(302): SETTING_SENTRY
     };
+    
+    // Set window level to be always in front
+    [[self window] setLevel:NSFloatingWindowLevel];
         
     _viewButtons = @[
         _setupButton,

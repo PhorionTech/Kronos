@@ -45,28 +45,19 @@ int main(int argc, char *argv[])
     SettingsReceiver* settingsReceiver = [[SettingsReceiver alloc] init];
     [settingsReceiver setEsf:esfClient];
     
-    DispatchTimer* unifiedLogTimer = [[DispatchTimer alloc]
-        initWithInterval:1 * NSEC_PER_SEC
-               tolorance:1 * NSEC_PER_SEC
-                   queue:dispatch_get_main_queue()
-                   block:^{
-                        [unifiedLog retrieveLatestEvents:^(TCCLog * _Nonnull log) {
-                            if ([log.type isEqualToString:@"REQUEST"] && ![log.function isEqualToString:@"TCCAccessRequest"]) {
-                                return;
-                            }
-                            
-                            [db writeTCCLogToDatabase:log];
+    [unifiedLog startEventStream:^(TCCLog * _Nonnull log) {
+         if ([log.type isEqualToString:@"REQUEST"] && ![log.function isEqualToString:@"TCCAccessRequest"]) {
+             return;
+         }
 
-                            
-                            if ([log.type isEqualToString:@"AUTHREQ_PROMPTING"]) {
-                                [xpc sendPromptingNotification:@{
-                                    @"msgID": log.msgID
-                                }];
-                            }
-                        }];
-                   }];
+         [db writeTCCLogToDatabase:log];
 
-    [unifiedLogTimer start];
+         if ([log.type isEqualToString:@"AUTHREQ_PROMPTING"]) {
+             [xpc sendPromptingNotification:@{
+                 @"msgID": log.msgID
+             }];
+         }
+    }];
     
     NSArray* keysToObserve = @[
         SETTING_ESF,
@@ -79,8 +70,6 @@ int main(int argc, char *argv[])
                                                    options:NSKeyValueObservingOptionNew
                                                    context:NULL];
     }
-
-    
 
     dispatch_main();
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,8 +9,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="TCCPermissionWindowController">
             <connections>
                 <outlet property="appTitle" destination="M9o-oJ-eg2" id="xQu-ae-wLJ"/>
-                <outlet property="datePicker" destination="kwO-F9-SmW" id="L6f-Mt-p4U"/>
                 <outlet property="imageView" destination="Fnn-sZ-J8n" id="cc5-Wf-cNb"/>
+                <outlet property="intervalFormatter" destination="51J-G8-tEI" id="4s8-L1-ola"/>
+                <outlet property="intervalType" destination="MSq-vW-Zlo" id="gOV-9Q-DTs"/>
+                <outlet property="intervalValue" destination="7Th-9d-k7c" id="xB2-jU-7Fl"/>
                 <outlet property="permissionTitle" destination="40E-02-Zvg" id="sA0-xQ-anG"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="4th-Qd-02q"/>
             </connections>
@@ -69,7 +70,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="122" translatesAutoresizingMaskIntoConstraints="NO" id="i7e-pj-qbR">
                         <rect key="frame" x="34" y="51" width="217" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="At the following time:" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="geb-N0-Cl3">
+                        <buttonCell key="cell" type="radio" title="After the following time period:" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="geb-N0-Cl3">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -77,19 +78,6 @@
                             <action selector="setRadioButton:" target="-2" id="gXf-bD-hIm"/>
                         </connections>
                     </button>
-                    <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwO-F9-SmW">
-                        <rect key="frame" x="237" y="48" width="164" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <datePickerCell key="cell" borderStyle="bezel" alignment="left" useCurrentDate="YES" id="Iim-LG-dRn">
-                            <font key="font" metaFont="system"/>
-                            <date key="date" timeIntervalSinceReferenceDate="718766841.62064004">
-                                <!--2023-10-12 01:27:21 +0000-->
-                            </date>
-                            <color key="backgroundColor" name="WindowBackground"/>
-                            <color key="textColor" red="0.30980392159999998" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES"/>
-                        </datePickerCell>
-                    </datePicker>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqd-RQ-6ql">
                         <rect key="frame" x="421" y="13" width="97" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -101,6 +89,33 @@
                             <action selector="submitCondition:" target="-2" id="itQ-Lm-Ls0"/>
                         </connections>
                     </button>
+                    <popUpButton identifier="intervalType" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MSq-vW-Zlo" userLabel="Interval Dropdown">
+                        <rect key="frame" x="337" y="46" width="90" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Hours" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="11l-NL-Fs9" id="nS2-Qf-Gop">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="H74-Ac-IKb">
+                                <items>
+                                    <menuItem title="Minutes" id="kRw-hV-s8I"/>
+                                    <menuItem title="Hours" state="on" id="11l-NL-Fs9"/>
+                                    <menuItem title="Days" id="uGm-8s-fA9"/>
+                                    <menuItem title="Weeks" id="YsH-uM-CjP"/>
+                                    <menuItem title="Months" id="OTj-A1-C5M"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField identifier="intervalTextField" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Th-9d-k7c">
+                        <rect key="frame" x="277" y="49" width="55" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="0" drawsBackground="YES" id="aia-rp-iTl">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="ordinal" usesGroupingSeparator="NO" roundingMode="ceiling" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="0" id="51J-G8-tEI"/>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <userDefinedRuntimeAttributes>
