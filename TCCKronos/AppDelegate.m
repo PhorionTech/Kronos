@@ -11,6 +11,7 @@
 #import "XPCConnection.h"
 #import "TCCNotifier/TCCEventNotifier.h"
 #import "ExtensionToggling/InstallExtension.h"
+#import "Constants.h"
 
 @import Sentry;
 
@@ -26,6 +27,14 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // Register a default set of values for UserDefaults
+    NSDictionary *appDefaults = @{
+        SETTING_ESF: @YES,
+        SETTING_SENTRY: @YES
+    };
+
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    
 #ifndef DEBUG
     if ([[[NSBundle mainBundle] bundlePath] hasPrefix:@"/Applications"] == NO) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -38,11 +47,13 @@
      
         [[NSApplication sharedApplication] terminate:self];
     }
-#endif
     
-    [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-         options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
-     }];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:SETTING_SENTRY]) {
+        [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
+             options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
+         }];
+    }
+#endif
     
     _statusBarController = [[StatusBar alloc] init:self.statusMenu];
     
@@ -85,9 +96,35 @@
     
     // Set the activation policy to NSApplicationActivationPolicyAccessory when the app starts
     [self setActivationPolicy];
+    
+    NSArray* keysToObserve = @[
+        SETTING_SENTRY
+    ];
+    
+    for (NSString* key in keysToObserve) {
+        [[NSUserDefaults standardUserDefaults] addObserver:self
+                                                forKeyPath:key
+                                                   options:NSKeyValueObservingOptionNew
+                                                   context:NULL];
+    }
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 
+    if ([keyPath isEqualToString:SETTING_SENTRY]) {
+#ifndef DEBUG
+        if ([object boolForKey:keyPath]) {
+            [SentrySDK startWithConfigureOptions:^(SentryOptions * _Nonnull options) {
+                options.dsn = @"";
+            }]
+        } else {
+            [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
+                options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
+            }];
+        }
+#endif
+    }
+}
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -127,6 +164,7 @@
     // Once the window has loaded, we change the activation policy
     [self setActivationPolicy];
 }
+
 - (IBAction)quitApp:(id)sender {
     // Seeya
     [NSApplication.sharedApplication terminate:self];

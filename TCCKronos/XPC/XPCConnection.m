@@ -231,5 +231,13 @@
     }] doRegister];
 }
 
+- (void)setAppDefaults:(id)value forKey:(NSString*)key {
+    [[connection synchronousRemoteObjectProxyWithErrorHandler:^(NSError* error)
+    {
+      NSLog(@"ERROR: failed to execute daemon XPC method '%s' (error: %@)", __PRETTY_FUNCTION__, error);
+      
+    }] setAppDefaults:value forKey:key];
+}
+
 
 @end

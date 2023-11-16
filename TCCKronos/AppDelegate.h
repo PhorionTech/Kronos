@@ -22,6 +22,7 @@
 @property(nonatomic, retain)TCCEventWindowController* eventWindowController;
 @property(nonatomic, retain)KronosUIController* kronosUIController;
 @property XPCConnection* xpcConnection;
+@property IBOutlet SPUStandardUpdaterController* updaterController;
 
 -(void)setActivationPolicy;
 
