@@ -230,4 +230,27 @@
     return;
 }
 
+- (BOOL)supportsGentleScheduledUpdateReminders {
+    return YES;
+}
+
+- (void)standardUserDriverWillHandleShowingUpdate:(BOOL)handleShowingUpdate forUpdate:(SUAppcastItem *)update state:(SPUUserUpdateState *)state {
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+    
+    if (!state.userInitiated) {
+        // Set a badge number on the app's Dock tile
+        [NSApp.dockTile setBadgeLabel:@"1"];
+    }
+}
+
+- (void)standardUserDriverDidReceiveUserAttentionForUpdate:(SUAppcastItem *)update {
+    [NSApp.dockTile setBadgeLabel:@""];
+}
+
+- (void)standardUserDriverWillFinishUpdateSession {
+    [self setActivationPolicy];
+}
+
+
+
 @end
