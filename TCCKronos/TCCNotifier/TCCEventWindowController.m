@@ -54,7 +54,7 @@
         //on main thread
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // Set the app delegate so there is no dock icon etc.
-    AppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
+    AppDelegate* appDelegate = (AppDelegate*)[[NSApplication sharedApplication] delegate];
     [appDelegate setActivationPolicy];
             
         });

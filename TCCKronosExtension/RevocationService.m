@@ -88,7 +88,7 @@
 }
 
 - (void)handleVersionCondition:(NSMutableDictionary*)condition {
-    NSString* targetVersion = condition[@"conditionValue"];
+//    NSString* targetVersion = condition[@"conditionValue"];
     
 //    Bundle* bundle = [Bundle bundlesFromIdentifier:condition[@"appIdentifier"]];
 

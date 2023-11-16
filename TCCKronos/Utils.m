@@ -2,8 +2,7 @@
 //  Utils.m
 //  TCCKronos
 
-
-
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 #import <Foundation/Foundation.h>
 #import <AppKit/Appkit.h>
@@ -405,9 +404,8 @@ NSImage* getIconForProcess(NSString* path)
     if(YES != [[NSFileManager defaultManager] fileExistsAtPath:path])
     {
         //set icon to system 'application' icon
-        icon = [[NSWorkspace sharedWorkspace]
-                iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
-        
+        icon = [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
+
         //set size to 64 @2x
         [icon setSize:NSMakeSize(128, 128)];
    
@@ -462,8 +460,8 @@ NSImage* getIconForProcess(NSString* path)
         if(nil == documentIcon)
         {
             //load
-            documentIcon = [[NSWorkspace sharedWorkspace] iconForFileType:
-                            NSFileTypeForHFSTypeCode(kGenericDocumentIcon)];
+            documentIcon = [[NSWorkspace sharedWorkspace] iconForContentType:UTTypePlainText];
+
         }
         
         //if 'iconForFile' method doesn't find and icon, it returns the system 'document' icon
@@ -471,8 +469,7 @@ NSImage* getIconForProcess(NSString* path)
         if(YES == [icon isEqual:documentIcon])
         {
             //set icon to system 'application' icon
-            icon = [[NSWorkspace sharedWorkspace]
-                    iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
+            icon =  [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
         }
         
         //'iconForFileType' returns small icons
@@ -498,8 +495,7 @@ NSImage* getIconForBundle(NSBundle* bundle)
     NSString* iconExtension = nil;
     
     // default
-    NSImage* icon = [[NSWorkspace sharedWorkspace]
-                     iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
+    NSImage* icon =  [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
     [icon setSize:NSMakeSize(128, 128)];
     
     if (bundle != nil)

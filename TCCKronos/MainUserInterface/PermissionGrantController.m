@@ -3,7 +3,7 @@
 //  TCCKronos
 
 
-
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 #import "PermissionGrantController.h"
 #import "AppDelegate.h"
@@ -19,9 +19,8 @@
 
 -(NSView*)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    NSImage* defaultIcon = [[NSWorkspace sharedWorkspace]
-                                    iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
-                            
+    NSImage* defaultIcon = [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
+
     [defaultIcon setSize:NSMakeSize(128, 128)];
     
     NSDictionary *dataItem = [_currentGrants objectAtIndex:row];

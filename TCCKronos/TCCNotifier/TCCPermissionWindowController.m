@@ -42,7 +42,7 @@
         //on main thread
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // Set the app delegate so there is no dock icon etc.
-    AppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
+    AppDelegate* appDelegate = (AppDelegate*)[[NSApplication sharedApplication] delegate];
     [appDelegate setActivationPolicy];
             
         });
@@ -50,7 +50,7 @@
 }
 - (IBAction)setRadioButton:(id)sender {
     NSButton* button = (NSButton*)sender;
-    int buttonTag = button.tag;
+    NSInteger buttonTag = button.tag;
 
     switch (buttonTag) {
         case 122:
@@ -69,14 +69,12 @@
     NSString* identifier = nil;
     
     // Grab the time unit that the user has selected
-    int intervalType = [_intervalType indexOfSelectedItem];
+    NSInteger intervalType = [_intervalType indexOfSelectedItem];
 
     NSDate *now = [NSDate date];
         
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
-
-    NSDate *newDate = [calendar dateByAddingComponents:componentsToAdd toDate:now options:0];
     
     _intervalFormatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [_intervalFormatter numberFromString:[_intervalValue stringValue]];
