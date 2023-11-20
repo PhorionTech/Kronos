@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "79A5E0BA2AAB1C5D00A8003D"
-               BuildableName = "TCCKronos.app"
+               BuildableName = "Kronos.app"
                BlueprintName = "TCCKronos"
                ReferencedContainer = "container:tcc-kronos.xcodeproj">
             </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "79A5E0BA2AAB1C5D00A8003D"
-            BuildableName = "TCCKronos.app"
+            BuildableName = "Kronos.app"
             BlueprintName = "TCCKronos"
             ReferencedContainer = "container:tcc-kronos.xcodeproj">
          </BuildableReference>
@@ -73,7 +73,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "79A5E0BA2AAB1C5D00A8003D"
-            BuildableName = "TCCKronos.app"
+            BuildableName = "Kronos.app"
             BlueprintName = "TCCKronos"
             ReferencedContainer = "container:tcc-kronos.xcodeproj">
          </BuildableReference>
