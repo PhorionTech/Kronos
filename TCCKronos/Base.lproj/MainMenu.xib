@@ -92,7 +92,12 @@
                 <action selector="terminate:" target="-1" id="1tv-Lk-5xt"/>
             </connections>
         </menuItem>
-        <customObject id="d87-kQ-5He" customClass="SPUStandardUpdaterController"/>
+        <customObject id="d87-kQ-5He" customClass="SPUStandardUpdaterController">
+            <connections>
+                <outlet property="updaterDelegate" destination="Voe-Tx-rLC" id="Y0t-Pk-wEC"/>
+                <outlet property="userDriverDelegate" destination="Voe-Tx-rLC" id="4Yj-jT-dDE"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="phorion-status-item" width="18" height="18"/>

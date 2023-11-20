@@ -13,7 +13,7 @@
 
 @class XPCConnection;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, SPUUpdaterDelegate, SPUStandardUserDriverDelegate>
 
 @property(strong) IBOutlet NSMenu *statusMenu;
 
