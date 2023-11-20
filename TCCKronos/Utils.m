@@ -2,8 +2,7 @@
 //  Utils.m
 //  TCCKronos
 
-
-
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 #import <Foundation/Foundation.h>
 #import <AppKit/Appkit.h>
@@ -405,9 +404,8 @@ NSImage* getIconForProcess(NSString* path)
     if(YES != [[NSFileManager defaultManager] fileExistsAtPath:path])
     {
         //set icon to system 'application' icon
-        icon = [[NSWorkspace sharedWorkspace]
-                iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
-        
+        icon = [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
+
         //set size to 64 @2x
         [icon setSize:NSMakeSize(128, 128)];
    
@@ -462,8 +460,8 @@ NSImage* getIconForProcess(NSString* path)
         if(nil == documentIcon)
         {
             //load
-            documentIcon = [[NSWorkspace sharedWorkspace] iconForFileType:
-                            NSFileTypeForHFSTypeCode(kGenericDocumentIcon)];
+            documentIcon = [[NSWorkspace sharedWorkspace] iconForContentType:UTTypePlainText];
+
         }
         
         //if 'iconForFile' method doesn't find and icon, it returns the system 'document' icon
@@ -471,8 +469,7 @@ NSImage* getIconForProcess(NSString* path)
         if(YES == [icon isEqual:documentIcon])
         {
             //set icon to system 'application' icon
-            icon = [[NSWorkspace sharedWorkspace]
-                    iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
+            icon =  [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
         }
         
         //'iconForFileType' returns small icons
@@ -498,8 +495,7 @@ NSImage* getIconForBundle(NSBundle* bundle)
     NSString* iconExtension = nil;
     
     // default
-    NSImage* icon = [[NSWorkspace sharedWorkspace]
-                     iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
+    NSImage* icon =  [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
     [icon setSize:NSMakeSize(128, 128)];
     
     if (bundle != nil)
@@ -544,4 +540,69 @@ NSString* getConsoleUser(void)
 {
     //copy/return user
     return CFBridgingRelease(SCDynamicStoreCopyConsoleUser(NULL, NULL, NULL));
+}
+
+NSString* stringFromAuthReason(int code) {
+    NSString *result;
+    switch (code) {
+        case 1:
+            result = @"Error";
+            break;
+        case 2:
+            result = @"User Consent";
+            break;
+        case 3:
+            result = @"User Set";
+            break;
+        case 4:
+            result = @"System Set";
+            break;
+        case 5:
+            result = @"Service Policy";
+            break;
+        case 6:
+            result = @"MDM Policy";
+            break;
+        case 7:
+            result = @"Override Policy";
+            break;
+        case 8:
+            result = @"Missing usage string";
+            break;
+        case 9:
+            result = @"Prompt Timeout";
+            break;
+        case 10:
+            result = @"Preflight Unknown";
+            break;
+        case 11:
+            result = @"Entitled";
+            break;
+        case 12:
+            result = @"App Type Policy";
+            break;
+        default:
+            result = @"Unknown";
+            break;
+    }
+    return result;
+}
+
+NSString* stringFromAuthValue(int code) {
+    NSString* result;
+    switch (code) {
+        case 0:
+            result = @"Denied";
+            break;
+        case 1:
+            result = @"Authorization unknown";
+            break;
+        case 2:
+            result = @"Allowed";
+            break;
+        case 3:
+            result = @"Limited";
+            break;
+    }
+    return result;
 }

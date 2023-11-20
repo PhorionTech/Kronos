@@ -22,7 +22,6 @@
         
         [self.tccEventWindowController showWindow:self];
         
-        
     });
 
 }

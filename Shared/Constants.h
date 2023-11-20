@@ -23,4 +23,8 @@
 
 #define BACKGROUND_TASK_IDENTIFIER @"io.phorion.tcc-kronos.TCCKronosBackground"
 
+#define SETTING_ESF @"KronosESFTamperingDetectionEnabled"
+#define SETTING_SENTRY @"KronosSentryTelemetryEnabled"
+#define SETTING_PRERELEASE_UPDATES @"KronosSparklePreReleaseUpdates"
+
 #endif /* Constants_h */

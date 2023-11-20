@@ -1,9 +1,9 @@
-
+//
 //  XPCConnection.h
 //  TCCKronos
-
-
-
+//
+//  Created by Luke Roberts on 12/09/2023.
+//
 
 #import <Foundation/Foundation.h>
 
@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)stopConnection;
 - (BOOL)isConnected;
 
+- (NSString*)checkSysExtVersion;
 - (BOOL)checkFDA;
 - (BOOL)retractTCCPermission:(NSString*)service withBundle:(NSString*)bundleId;
 - (NSArray<NSDictionary*>*)tccSelectAll;
@@ -28,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSDictionary*>*)dbUsageForApp:(NSString*)appIdentifier;
 - (NSDictionary*)getUsageByMsgID:(NSString*)msgID;
 - (NSArray<NSDictionary*>*)getConditions;
+- (void)setAppDefaults:(id)value forKey:(NSString*)key;
 
 @end
 

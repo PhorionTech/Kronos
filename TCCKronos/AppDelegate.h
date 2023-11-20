@@ -13,7 +13,7 @@
 
 @class XPCConnection;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, SPUUpdaterDelegate, SPUStandardUserDriverDelegate>
 
 @property(strong) IBOutlet NSMenu *statusMenu;
 
@@ -22,6 +22,7 @@
 @property(nonatomic, retain)TCCEventWindowController* eventWindowController;
 @property(nonatomic, retain)KronosUIController* kronosUIController;
 @property XPCConnection* xpcConnection;
+@property IBOutlet SPUStandardUpdaterController* updaterController;
 
 -(void)setActivationPolicy;
 

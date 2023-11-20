@@ -1,0 +1,42 @@
+PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - Sentry (8.13.0):
+    - Sentry/Core (= 8.13.0)
+    - SentryPrivate (= 8.13.0)
+  - Sentry/Core (8.13.0):
+    - SentryPrivate (= 8.13.0)
+  - SentryPrivate (8.13.0)
+  - Sparkle (2.5.0)
+
+DEPENDENCIES:
+  - FMDB
+  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `8.13.0`)
+  - Sparkle
+
+SPEC REPOS:
+  trunk:
+    - FMDB
+    - SentryPrivate
+    - Sparkle
+
+EXTERNAL SOURCES:
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 8.13.0
+
+CHECKOUT OPTIONS:
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 8.13.0
+
+SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  Sentry: a067ca1db308066097314d8478e9682f3b575dee
+  SentryPrivate: 917c91aeb0f199cd079404fab2b50c83e4bad25c
+  Sparkle: 913cef92f73e08d0ae47a36ee20e523913e5f9e2
+
+PODFILE CHECKSUM: 1eb9c1abd6639a4c2612ed83ddba7e8ccf3beb23
+
+COCOAPODS: 1.13.0

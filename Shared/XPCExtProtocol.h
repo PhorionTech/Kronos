@@ -1,9 +1,9 @@
-
+//
 //  XPCExtProtocol.h
 //  tcc-kronos
-
-
-
+//
+//  Created by Luke Roberts on 12/09/2023.
+//
 
 #import <Foundation/Foundation.h>
 
@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol XPCExtProtocol <NSObject>
 
+- (void)checkSysExtVersionWithReply:(void (^)(NSString*))reply;
 - (void)checkFDAWithReply:(void (^)(BOOL))reply;
 - (void)retractTCCPermission:(NSString*)service withBundle:(NSString*)bundleId withReply:(void (^)(BOOL))reply;
 - (void)tccSelectAllWithReply:(void (^)(NSArray<NSDictionary*>*))reply;
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getUsageByMsgID:(NSString*)msgID withReply:(void (^)(NSDictionary*))reply;
 - (void)getConditionsWithReply:(nonnull void (^)(NSArray<NSDictionary *> * _Nonnull))reply;
 - (void)doRegister;
+- (void)setAppDefaults:(id)value forKey:(NSString*)key;
 
 @end
 

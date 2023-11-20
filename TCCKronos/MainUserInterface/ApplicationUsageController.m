@@ -14,9 +14,37 @@
 
 - (void)windowDidLoad {
     
-    // We are passing the application name when opening this window
-    _appUsage = [[XPCConnection shared] dbUsageForApp:_applicationBundleName];//self.application];
     [[self window] setTitle:_application];
+    
+    _loadingSpinnerView.wantsLayer = YES;
+    _loadingSpinnerView.layer.cornerRadius = 20.0;
+    [_loadingSpinnerView setMaterial:NSVisualEffectMaterialSidebar];
+    _loadingSpinnerView.hidden = NO;
+    [_loadingSpinner startAnimation:nil];
+
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    dispatch_async(queue, ^{
+        
+        NSArray<NSDictionary*>* _unsortedAppUsage = [[XPCConnection shared] dbUsageForApp:self->_applicationBundleName];
+
+        // We are passing the application name when opening this window
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO];
+        self->_appUsage = [_unsortedAppUsage sortedArrayUsingDescriptors:@[sortDescriptor]];
+        
+        // Once the permissions have been loaded refresh the outline view
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+                [self.tableView beginUpdates];
+                [self.tableView reloadData];
+                [self.tableView endUpdates];
+                
+                self->_loadingSpinnerView.hidden = YES;
+            });
+        });
+    });
 }
 
 //on window close
@@ -38,7 +66,7 @@
     NSTableCellView* cell;
     
     // Ensure the right formatting for the service cell
-    if (tableColumn == self.tableView.tableColumns[1]) {
+    if (tableColumn == self.tableView.tableColumns[1] || tableColumn == self.tableView.tableColumns[6]) {
         cell = [tableView makeViewWithIdentifier:@"serviceCellData" owner:self];
     }
     else {
@@ -61,8 +89,16 @@
     else if (tableColumn == self.tableView.tableColumns[3]) {
         cell.textField.stringValue = [dataItem valueForKey:@"accessingPath"];
     }
-    // result
+    // responsible identifier
     else if (tableColumn == self.tableView.tableColumns[4]) {
+        cell.textField.stringValue = [dataItem valueForKey:@"responsibleIdentifier"];
+    }
+    // responsible path
+    else if (tableColumn == self.tableView.tableColumns[5]) {
+        cell.textField.stringValue = [dataItem valueForKey:@"responsiblePath"];
+    }
+    // result
+    else if (tableColumn == self.tableView.tableColumns[6]) {
         cell.textField.stringValue = [dataItem valueForKey:@"didResult"];
     }
 
@@ -76,7 +112,7 @@
         //on main thread
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // Set the app delegate so there is no dock icon etc.
-    AppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
+    AppDelegate* appDelegate = (AppDelegate*)[[NSApplication sharedApplication] delegate];
     [appDelegate setActivationPolicy];
             
         });

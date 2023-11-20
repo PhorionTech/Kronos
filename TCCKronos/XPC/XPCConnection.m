@@ -1,9 +1,9 @@
-
+//
 //  XPCConnection.m
 //  TCCKronos
-
-
-
+//
+//  Created by Luke Roberts on 12/09/2023.
+//
 
 #import "XPCConnection.h"
 #import "XPCAppProtocol.h"
@@ -83,6 +83,21 @@
 }
 
 # pragma mark - Remote Method Helpers
+
+- (NSString*)checkSysExtVersion
+{
+    __block NSString* result = @"";
+    
+    [[connection synchronousRemoteObjectProxyWithErrorHandler:^(NSError* error)
+    {
+      NSLog(@"ERROR: failed to execute daemon XPC method '%s' (error: %@)", __PRETTY_FUNCTION__, error);
+      
+    }] checkSysExtVersionWithReply:^(NSString* reply) {
+        result = reply;
+    }];
+    
+    return result;
+}
 
 - (BOOL)checkFDA
 {
@@ -214,6 +229,14 @@
       NSLog(@"ERROR: failed to execute daemon XPC method '%s' (error: %@)", __PRETTY_FUNCTION__, error);
       
     }] doRegister];
+}
+
+- (void)setAppDefaults:(id)value forKey:(NSString*)key {
+    [[connection synchronousRemoteObjectProxyWithErrorHandler:^(NSError* error)
+    {
+      NSLog(@"ERROR: failed to execute daemon XPC method '%s' (error: %@)", __PRETTY_FUNCTION__, error);
+      
+    }] setAppDefaults:value forKey:key];
 }
 
 

@@ -1,15 +1,19 @@
-
+//
 //  AppDelegate.m
 //  tcc-kronos
-
-
-
+//
+//  Created by Calum Hall on 08/09/2023.
+//
 
 #import "AppDelegate.h"
 
 #import "DispatchTimer.h"
 #import "XPCConnection.h"
 #import "TCCNotifier/TCCEventNotifier.h"
+#import "ExtensionToggling/InstallExtension.h"
+
+#import "Constants.h"
+#import "Hasher.h"
 
 @import Sentry;
 
@@ -21,9 +25,19 @@
 
 @implementation AppDelegate {
     DispatchTimer* _xpcConnectRetry;
+    InstallExtension* _installExtension;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // Register a default set of values for UserDefaults
+    NSDictionary *appDefaults = @{
+        SETTING_ESF: @YES,
+        SETTING_SENTRY: @YES,
+        SETTING_PRERELEASE_UPDATES: @NO
+    };
+
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    
 #ifndef DEBUG
     if ([[[NSBundle mainBundle] bundlePath] hasPrefix:@"/Applications"] == NO) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -36,11 +50,13 @@
      
         [[NSApplication sharedApplication] terminate:self];
     }
-#endif
     
-    [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-         options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
-     }];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:SETTING_SENTRY]) {
+        [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
+             options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
+         }];
+    }
+#endif
     
     _statusBarController = [[StatusBar alloc] init:self.statusMenu];
     
@@ -53,8 +69,23 @@
         self.settingsWindowController = [[SettingsWindowController alloc] initWithWindowNibName:@"SettingsWindow"];
         [self.settingsWindowController showWindow:self];
     }
+    
     // Setup the XPC Connection to our system extension
     _xpcConnection = [XPCConnection shared];
+    
+    if ([_xpcConnection isConnected]) {
+        NSString* sysExtVersion = [_xpcConnection checkSysExtVersion];
+        
+        if ([sysExtVersion isNotEqualTo:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]) {
+            // Version mismatch between sysext and app, we should install.
+            
+            _installExtension = [[InstallExtension alloc] init];
+            [_installExtension install];
+        }
+    }
+    
+    // Check to see if the hash of any installed launch items matches the one in the bundle
+    [self checkLaunchdPlist];
     
     _xpcConnectRetry = [[DispatchTimer alloc]
         initWithInterval:2 * NSEC_PER_SEC
@@ -68,15 +99,81 @@
 
     [_xpcConnectRetry start];
 
-    // Leaving this here for testing notifications
-    // [[TCCEventNotifier alloc] sendNotification:@"New TCC permissions detected" withSubtitle:@"Terminal has been given access to your documents, control for how long here!"];
     [self requestNotifications];
     
     // Set the activation policy to NSApplicationActivationPolicyAccessory when the app starts
     [self setActivationPolicy];
+    
+    NSArray* keysToObserve = @[
+        SETTING_SENTRY
+    ];
+    
+    for (NSString* key in keysToObserve) {
+        [[NSUserDefaults standardUserDefaults] addObserver:self
+                                                forKeyPath:key
+                                                   options:NSKeyValueObservingOptionNew
+                                                   context:NULL];
+    }
 }
 
+- (void)checkLaunchdPlist {
+     NSError* error = nil;
 
+     NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
+     NSString* appBundlePath = [resourcePath stringByDeletingLastPathComponent];
+     NSURL* plist = [NSURL URLWithString:@"Contents/Library/LaunchAgents/io.phorion.kronos.plist"
+                                 relativeToURL:[NSURL URLWithString:appBundlePath]];
+
+     NSString* absolutePath = [plist absoluteString];
+
+     NSString* targetPath = [@"~/Library/LaunchAgents/io.phorion.kronos.plist" stringByExpandingTildeInPath];
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:targetPath] == YES) {
+        if ([[Hasher calculateSHA256ForFileAtPath:targetPath] isEqualToString:[Hasher calculateSHA256ForFileAtPath:absolutePath]]) {
+            return;
+        }
+        
+        NSLog(@"Found existing plist at %@ for a different version, replacing", targetPath);
+        
+        [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error];
+        
+        if (error) {
+            NSLog(@"An error occured: %@", [error localizedDescription]);
+            return;
+        }
+        
+        if ([[NSFileManager defaultManager] isReadableFileAtPath:absolutePath]) {
+            [[NSFileManager defaultManager] copyItemAtPath:absolutePath
+                                                    toPath:targetPath
+                                                     error:&error];
+            
+            if (error) {
+                NSLog(@"An error occured: %@", [error localizedDescription]);
+                return;
+            }
+        } else {
+            NSLog(@"Couldn't find plist to copy at: %@", absolutePath);
+            return;
+        }
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
+    if ([keyPath isEqualToString:SETTING_SENTRY]) {
+#ifndef DEBUG
+        if ([object boolForKey:keyPath]) {
+            [SentrySDK startWithConfigureOptions:^(SentryOptions * _Nonnull options) {
+                options.dsn = @"";
+            }];
+        } else {
+            [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
+                options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";
+            }];
+        }
+#endif
+    }
+}
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -116,6 +213,7 @@
     // Once the window has loaded, we change the activation policy
     [self setActivationPolicy];
 }
+
 - (IBAction)quitApp:(id)sender {
     // Seeya
     [NSApplication.sharedApplication terminate:self];
@@ -180,5 +278,36 @@
     
     return;
 }
+
+- (NSSet<NSString *> *)allowedChannelsForUpdater:(SPUUpdater *)updater {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:SETTING_PRERELEASE_UPDATES]) {
+        return [NSSet setWithObject:@"prerelease"];
+    } else {
+        return [NSSet set];
+    }
+}
+
+- (BOOL)supportsGentleScheduledUpdateReminders {
+    return YES;
+}
+
+- (void)standardUserDriverWillHandleShowingUpdate:(BOOL)handleShowingUpdate forUpdate:(SUAppcastItem *)update state:(SPUUserUpdateState *)state {
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+    
+    if (!state.userInitiated) {
+        // Set a badge number on the app's Dock tile
+        [NSApp.dockTile setBadgeLabel:@"1"];
+    }
+}
+
+- (void)standardUserDriverDidReceiveUserAttentionForUpdate:(SUAppcastItem *)update {
+    [NSApp.dockTile setBadgeLabel:@""];
+}
+
+- (void)standardUserDriverWillFinishUpdateSession {
+    [self setActivationPolicy];
+}
+
+
 
 @end

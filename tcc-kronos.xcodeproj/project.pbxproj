@@ -1,0 +1,1116 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08762E1BE709443D5DA11E10 /* Pods_TCCKronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BE4556B0E0DE35110BA190 /* Pods_TCCKronos.framework */; };
+		76219CD46286B5A6A77C863D /* Pods_TCCKronosExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CDC7089C059C0F42A45F5D /* Pods_TCCKronosExtension.framework */; };
+		791F7E5D2AD4986D007007C8 /* PermissionGrantController.h in Sources */ = {isa = PBXBuildFile; fileRef = 791F7E5C2AD4986D007007C8 /* PermissionGrantController.h */; };
+		791F7E5F2AD49921007007C8 /* PermissionGrantController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791F7E5E2AD49921007007C8 /* PermissionGrantController.m */; };
+		791F7E612AD4A005007007C8 /* PermissionGrantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791F7E602AD4A005007007C8 /* PermissionGrantView.xib */; };
+		794445D32AAE636B006FC736 /* libEndpointSecurity.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 794445D22AAE636B006FC736 /* libEndpointSecurity.tbd */; };
+		794445DB2AAE636B006FC736 /* io.phorion.tcc-kronos.TCCKronosExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 794445D02AAE636B006FC736 /* io.phorion.tcc-kronos.TCCKronosExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		794445E12AAE63AB006FC736 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 794445E02AAE63AB006FC736 /* main.m */; };
+		794445E32AAFA71B006FC736 /* libbsm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 794445E22AAFA71B006FC736 /* libbsm.tbd */; };
+		794445E92AAFB394006FC736 /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794445E82AAFB394006FC736 /* SettingsWindowController.m */; };
+		794445EC2AAFB44F006FC736 /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 794445EB2AAFB44F006FC736 /* SettingsWindow.xib */; };
+		794445EF2AAFCADE006FC736 /* InstallExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 794445EE2AAFCADE006FC736 /* InstallExtension.m */; };
+		7947C9802AB238C1007D3B0D /* TCCEventWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7947C97F2AB238C1007D3B0D /* TCCEventWindowController.m */; };
+		7947C9832AB23AB8007D3B0D /* TCCEventWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7947C9822AB23AB8007D3B0D /* TCCEventWindow.xib */; };
+		7947C9862AB3B3A9007D3B0D /* TCCEventNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 7947C9852AB3B3A9007D3B0D /* TCCEventNotifier.m */; };
+		79A426EC2AC99A6800BD524A /* KronosUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A426EB2AC99A6800BD524A /* KronosUI.xib */; };
+		79A426EF2AC9C03500BD524A /* KronosUIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A426EE2AC9C03500BD524A /* KronosUIController.m */; };
+		79A4AF872AC3854C009B2C44 /* TCCUtilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A4AF852AC3854C009B2C44 /* TCCUtilHelper.m */; };
+		79A5E0C02AAB1C5D00A8003D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A5E0BF2AAB1C5D00A8003D /* AppDelegate.m */; };
+		79A5E0C22AAB1C5E00A8003D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A5E0C12AAB1C5E00A8003D /* Assets.xcassets */; };
+		79A5E0C52AAB1C5E00A8003D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A5E0C32AAB1C5E00A8003D /* MainMenu.xib */; };
+		79A5E0C72AAB1C5E00A8003D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A5E0C62AAB1C5E00A8003D /* main.m */; };
+		79A5E0EB2AAB1D7A00A8003D /* StatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A5E0EA2AAB1D7A00A8003D /* StatusBar.m */; };
+		79C001222ACE138B00161B54 /* ApplicationUsageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C001212ACE138B00161B54 /* ApplicationUsageController.m */; };
+		79C001272ACF4DA700161B54 /* TCCPermissionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C001262ACF4DA700161B54 /* TCCPermissionWindowController.m */; };
+		79C0012A2ACF4F3C00161B54 /* TCCPermissionToggler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C001292ACF4F3C00161B54 /* TCCPermissionToggler.xib */; };
+		79F9BC832ACB7FF8009220D0 /* TCCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEB82AB3B2510021A8ED /* TCCHelper.m */; };
+		79F9BC852ACE0053009220D0 /* ApplicationUsage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F9BC842ACE0053009220D0 /* ApplicationUsage.xib */; };
+		84E00B572B0BBEE000A63437 /* Hasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E00B562B0BBEE000A63437 /* Hasher.m */; };
+		CC719E1BAC57E0BF915CAA36 /* Pods_TCCKronosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A836C3F3EE29C4B4EAFE98 /* Pods_TCCKronosTests.framework */; };
+		D72CB7CA2B040A8200E74BCE /* SettingsReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = D72CB7C92B040A8200E74BCE /* SettingsReceiver.m */; };
+		F53D062B2AD774E200A201C3 /* io.phorion.kronos.plist in Resources */ = {isa = PBXBuildFile; fileRef = F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */; };
+		F53D062D2AD775A500A201C3 /* io.phorion.kronos.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */; };
+		F54FC5DE2AD00B3300DCEC7B /* Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F54FC5DD2AD00B3300DCEC7B /* Bundle.m */; };
+		F5813E4A2AC45D2400E8598F /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5813E482AC45D2400E8598F /* DatabaseController.m */; };
+		F5813E4C2AC4710A00E8598F /* DatabaseControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5813E4B2AC4710A00E8598F /* DatabaseControllerTests.m */; };
+		F5813E4D2AC4712800E8598F /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5813E482AC45D2400E8598F /* DatabaseController.m */; };
+		F589FEAF2AB2F1750021A8ED /* DispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEAE2AB2F1750021A8ED /* DispatchTimer.m */; };
+		F589FEB02AB2F1750021A8ED /* DispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEAE2AB2F1750021A8ED /* DispatchTimer.m */; };
+		F589FEB32AB308860021A8ED /* ESFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEB22AB308860021A8ED /* ESFClient.m */; };
+		F589FEB62AB3094E0021A8ED /* UnifiedLogClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEB52AB3094E0021A8ED /* UnifiedLogClient.m */; };
+		F589FEB92AB3B2510021A8ED /* TCCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEB82AB3B2510021A8ED /* TCCHelper.m */; };
+		F589FEBB2AB3B7650021A8ED /* OSLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F589FEBA2AB3B7650021A8ED /* OSLog.framework */; platformFilter = maccatalyst; };
+		F58E26892AC73C3B00A92462 /* TCCReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E26882AC73C3B00A92462 /* TCCReaderTests.m */; };
+		F58E268C2AC86ECC00A92462 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58E268B2AC86ECC00A92462 /* SystemConfiguration.framework */; };
+		F598BD612AD61E2A00A8749B /* Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F54FC5DD2AD00B3300DCEC7B /* Bundle.m */; };
+		F5AAC5ED2AB75A490066C910 /* UnifiedLogClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AAC5EC2AB75A490066C910 /* UnifiedLogClientTests.m */; };
+		F5AAC5F32AB75A500066C910 /* UnifiedLogClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEB52AB3094E0021A8ED /* UnifiedLogClient.m */; };
+		F5AAC5F62AB7604F0066C910 /* TCCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AAC5F52AB7604F0066C910 /* TCCLog.m */; };
+		F5AAC5F72AB7604F0066C910 /* TCCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AAC5F52AB7604F0066C910 /* TCCLog.m */; };
+		F5AAC5F82AB76BE70066C910 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FB4FDC2AB2751600E2ED2E /* Utils.m */; };
+		F5AAC5F92AB76BF70066C910 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FB4FDC2AB2751600E2ED2E /* Utils.m */; };
+		F5B59A942AD2E2D80025DD12 /* Signing.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B59A932AD2E2D80025DD12 /* Signing.m */; };
+		F5B59A952AD2E2D80025DD12 /* Signing.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B59A932AD2E2D80025DD12 /* Signing.m */; };
+		F5B59A992AD2EC7A0025DD12 /* RevocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B59A972AD2EC7A0025DD12 /* RevocationService.m */; };
+		F5B59A9B2AD2F3010025DD12 /* RevocationServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B59A9A2AD2F3010025DD12 /* RevocationServiceTests.m */; };
+		F5B59A9C2AD2F3620025DD12 /* RevocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B59A972AD2EC7A0025DD12 /* RevocationService.m */; };
+		F5C533E62AD6B74A00A86E8E /* TCCEventNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 7947C9852AB3B3A9007D3B0D /* TCCEventNotifier.m */; };
+		F5C848402AB09DB5009FC839 /* ConnectionVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8483F2AB09DB5009FC839 /* ConnectionVerifier.m */; };
+		F5CBDEAB2AB0799E001C9FC6 /* XPCApp.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBDEAA2AB0799E001C9FC6 /* XPCApp.m */; };
+		F5CBDEAE2AB079A8001C9FC6 /* XPCConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBDEAD2AB079A8001C9FC6 /* XPCConnection.m */; };
+		F5CBDEB72AB08727001C9FC6 /* XPCListener.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBDEB62AB08727001C9FC6 /* XPCListener.m */; };
+		F5CBDEBA2AB08788001C9FC6 /* XPCExt.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBDEB92AB08788001C9FC6 /* XPCExt.m */; };
+		F5FB4FDD2AB2751600E2ED2E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FB4FDC2AB2751600E2ED2E /* Utils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		794445D92AAE636B006FC736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79A5E0B32AAB1C5D00A8003D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 794445CF2AAE636B006FC736;
+			remoteInfo = TCCKronosExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		794445DF2AAE636C006FC736 /* Embed System Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				794445DB2AAE636B006FC736 /* io.phorion.tcc-kronos.TCCKronosExtension.systemextension in Embed System Extensions */,
+			);
+			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F53D062C2AD7759300A201C3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchAgents;
+			dstSubfolderSpec = 1;
+			files = (
+				F53D062D2AD775A500A201C3 /* io.phorion.kronos.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		109364C01CF81A0475A7F7A5 /* Pods-TCCKronosExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosExtension.debug.xcconfig"; path = "Target Support Files/Pods-TCCKronosExtension/Pods-TCCKronosExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		16BE4556B0E0DE35110BA190 /* Pods_TCCKronos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TCCKronos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C9453B448A4127CBB6E5DC4 /* Pods-TCCKronosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosTests.debug.xcconfig"; path = "Target Support Files/Pods-TCCKronosTests/Pods-TCCKronosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		791F7E5C2AD4986D007007C8 /* PermissionGrantController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionGrantController.h; sourceTree = "<group>"; };
+		791F7E5E2AD49921007007C8 /* PermissionGrantController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionGrantController.m; sourceTree = "<group>"; };
+		791F7E602AD4A005007007C8 /* PermissionGrantView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionGrantView.xib; sourceTree = "<group>"; };
+		794445D02AAE636B006FC736 /* io.phorion.tcc-kronos.TCCKronosExtension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = "io.phorion.tcc-kronos.TCCKronosExtension.systemextension"; sourceTree = BUILT_PRODUCTS_DIR; };
+		794445D22AAE636B006FC736 /* libEndpointSecurity.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libEndpointSecurity.tbd; path = usr/lib/libEndpointSecurity.tbd; sourceTree = SDKROOT; };
+		794445D72AAE636B006FC736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		794445D82AAE636B006FC736 /* TCCKronosExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TCCKronosExtension.entitlements; sourceTree = "<group>"; };
+		794445E02AAE63AB006FC736 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		794445E22AAFA71B006FC736 /* libbsm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbsm.tbd; path = usr/lib/libbsm.tbd; sourceTree = SDKROOT; };
+		794445E82AAFB394006FC736 /* SettingsWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
+		794445EA2AAFB3A5006FC736 /* SettingsWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsWindowController.h; sourceTree = "<group>"; };
+		794445EB2AAFB44F006FC736 /* SettingsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
+		794445EE2AAFCADE006FC736 /* InstallExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstallExtension.m; sourceTree = "<group>"; };
+		794445F02AAFCAEB006FC736 /* InstallExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstallExtension.h; sourceTree = "<group>"; };
+		7947C97F2AB238C1007D3B0D /* TCCEventWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCEventWindowController.m; sourceTree = "<group>"; };
+		7947C9812AB238D0007D3B0D /* TCCEventWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCEventWindowController.h; sourceTree = "<group>"; };
+		7947C9822AB23AB8007D3B0D /* TCCEventWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCCEventWindow.xib; sourceTree = "<group>"; };
+		7947C9852AB3B3A9007D3B0D /* TCCEventNotifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCEventNotifier.m; sourceTree = "<group>"; };
+		7947C9872AB3B3B6007D3B0D /* TCCEventNotifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCEventNotifier.h; sourceTree = "<group>"; };
+		79A426EB2AC99A6800BD524A /* KronosUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KronosUI.xib; sourceTree = "<group>"; };
+		79A426EE2AC9C03500BD524A /* KronosUIController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KronosUIController.m; sourceTree = "<group>"; };
+		79A426F02AC9C04A00BD524A /* KronosUIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KronosUIController.h; sourceTree = "<group>"; };
+		79A4AF842AC384BB009B2C44 /* TCCUtilHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCUtilHelper.h; sourceTree = "<group>"; };
+		79A4AF852AC3854C009B2C44 /* TCCUtilHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCUtilHelper.m; sourceTree = "<group>"; };
+		79A5E0BB2AAB1C5D00A8003D /* Kronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A5E0BE2AAB1C5D00A8003D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		79A5E0BF2AAB1C5D00A8003D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		79A5E0C12AAB1C5E00A8003D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79A5E0C42AAB1C5E00A8003D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		79A5E0C62AAB1C5E00A8003D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79A5E0C82AAB1C5E00A8003D /* tcc_kronos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tcc_kronos.entitlements; sourceTree = "<group>"; };
+		79A5E0EA2AAB1D7A00A8003D /* StatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBar.m; sourceTree = "<group>"; };
+		79A5E0EC2AAB1D9200A8003D /* StatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusBar.h; sourceTree = "<group>"; };
+		79C001202ACE138B00161B54 /* ApplicationUsageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationUsageController.h; sourceTree = "<group>"; };
+		79C001212ACE138B00161B54 /* ApplicationUsageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationUsageController.m; sourceTree = "<group>"; };
+		79C001262ACF4DA700161B54 /* TCCPermissionWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCPermissionWindowController.m; sourceTree = "<group>"; };
+		79C001282ACF4DB400161B54 /* TCCPermissionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCPermissionWindowController.h; sourceTree = "<group>"; };
+		79C001292ACF4F3C00161B54 /* TCCPermissionToggler.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCCPermissionToggler.xib; sourceTree = "<group>"; };
+		79F9BC842ACE0053009220D0 /* ApplicationUsage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplicationUsage.xib; sourceTree = "<group>"; };
+		84E00B552B0BBEE000A63437 /* Hasher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hasher.h; sourceTree = "<group>"; };
+		84E00B562B0BBEE000A63437 /* Hasher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hasher.m; sourceTree = "<group>"; };
+		96DBC976FC5E5495B283C162 /* Pods-TCCKronos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronos.debug.xcconfig"; path = "Target Support Files/Pods-TCCKronos/Pods-TCCKronos.debug.xcconfig"; sourceTree = "<group>"; };
+		9E6A023D02D2109D922FC6EA /* Pods-TCCKronosExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosExtension.release.xcconfig"; path = "Target Support Files/Pods-TCCKronosExtension/Pods-TCCKronosExtension.release.xcconfig"; sourceTree = "<group>"; };
+		A7C490B56A9643FE0D4E569B /* Pods-TCCKronosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosTests.release.xcconfig"; path = "Target Support Files/Pods-TCCKronosTests/Pods-TCCKronosTests.release.xcconfig"; sourceTree = "<group>"; };
+		B4CDC7089C059C0F42A45F5D /* Pods_TCCKronosExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TCCKronosExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72CB7C82B040A8200E74BCE /* SettingsReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsReceiver.h; sourceTree = "<group>"; };
+		D72CB7C92B040A8200E74BCE /* SettingsReceiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsReceiver.m; sourceTree = "<group>"; };
+		F00288995A8B3AC7C87FE455 /* Pods-TCCKronos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronos.release.xcconfig"; path = "Target Support Files/Pods-TCCKronos/Pods-TCCKronos.release.xcconfig"; sourceTree = "<group>"; };
+		F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = io.phorion.kronos.plist; sourceTree = "<group>"; };
+		F54FC5DC2AD00B3300DCEC7B /* Bundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bundle.h; sourceTree = "<group>"; };
+		F54FC5DD2AD00B3300DCEC7B /* Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bundle.m; sourceTree = "<group>"; };
+		F5813E472AC45D2400E8598F /* DatabaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseController.h; sourceTree = "<group>"; };
+		F5813E482AC45D2400E8598F /* DatabaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseController.m; sourceTree = "<group>"; };
+		F5813E4B2AC4710A00E8598F /* DatabaseControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseControllerTests.m; sourceTree = "<group>"; };
+		F589FEAD2AB2F1750021A8ED /* DispatchTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchTimer.h; sourceTree = "<group>"; };
+		F589FEAE2AB2F1750021A8ED /* DispatchTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchTimer.m; sourceTree = "<group>"; };
+		F589FEB12AB308860021A8ED /* ESFClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESFClient.h; sourceTree = "<group>"; };
+		F589FEB22AB308860021A8ED /* ESFClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESFClient.m; sourceTree = "<group>"; };
+		F589FEB42AB3094E0021A8ED /* UnifiedLogClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnifiedLogClient.h; sourceTree = "<group>"; };
+		F589FEB52AB3094E0021A8ED /* UnifiedLogClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnifiedLogClient.m; sourceTree = "<group>"; };
+		F589FEB72AB3B2510021A8ED /* TCCHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCHelper.h; sourceTree = "<group>"; };
+		F589FEB82AB3B2510021A8ED /* TCCHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCHelper.m; sourceTree = "<group>"; };
+		F589FEBA2AB3B7650021A8ED /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
+		F58E26882AC73C3B00A92462 /* TCCReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCReaderTests.m; sourceTree = "<group>"; };
+		F58E268B2AC86ECC00A92462 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F5AAC5EA2AB75A490066C910 /* TCCKronosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCCKronosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5AAC5EC2AB75A490066C910 /* UnifiedLogClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnifiedLogClientTests.m; sourceTree = "<group>"; };
+		F5AAC5F42AB7604F0066C910 /* TCCLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCLog.h; sourceTree = "<group>"; };
+		F5AAC5F52AB7604F0066C910 /* TCCLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCLog.m; sourceTree = "<group>"; };
+		F5B59A922AD2E2D80025DD12 /* Signing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Signing.h; sourceTree = "<group>"; };
+		F5B59A932AD2E2D80025DD12 /* Signing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Signing.m; sourceTree = "<group>"; };
+		F5B59A962AD2EC7A0025DD12 /* RevocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RevocationService.h; sourceTree = "<group>"; };
+		F5B59A972AD2EC7A0025DD12 /* RevocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RevocationService.m; sourceTree = "<group>"; };
+		F5B59A9A2AD2F3010025DD12 /* RevocationServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RevocationServiceTests.m; sourceTree = "<group>"; };
+		F5C8483E2AB09DB5009FC839 /* ConnectionVerifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionVerifier.h; sourceTree = "<group>"; };
+		F5C8483F2AB09DB5009FC839 /* ConnectionVerifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionVerifier.m; sourceTree = "<group>"; };
+		F5CBDEA92AB0799E001C9FC6 /* XPCApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCApp.h; sourceTree = "<group>"; };
+		F5CBDEAA2AB0799E001C9FC6 /* XPCApp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPCApp.m; sourceTree = "<group>"; };
+		F5CBDEAC2AB079A8001C9FC6 /* XPCConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCConnection.h; sourceTree = "<group>"; };
+		F5CBDEAD2AB079A8001C9FC6 /* XPCConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPCConnection.m; sourceTree = "<group>"; };
+		F5CBDEAF2AB07BEF001C9FC6 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F5CBDEB22AB07F7C001C9FC6 /* XPCAppProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCAppProtocol.h; sourceTree = "<group>"; };
+		F5CBDEB32AB085A5001C9FC6 /* XPCExtProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCExtProtocol.h; sourceTree = "<group>"; };
+		F5CBDEB52AB08727001C9FC6 /* XPCListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCListener.h; sourceTree = "<group>"; };
+		F5CBDEB62AB08727001C9FC6 /* XPCListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPCListener.m; sourceTree = "<group>"; };
+		F5CBDEB82AB08788001C9FC6 /* XPCExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCExt.h; sourceTree = "<group>"; };
+		F5CBDEB92AB08788001C9FC6 /* XPCExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPCExt.m; sourceTree = "<group>"; };
+		F5FB4FDC2AB2751600E2ED2E /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		F5FB4FDE2AB2754A00E2ED2E /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		F9A836C3F3EE29C4B4EAFE98 /* Pods_TCCKronosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TCCKronosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		794445CD2AAE636B006FC736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				794445E32AAFA71B006FC736 /* libbsm.tbd in Frameworks */,
+				F589FEBB2AB3B7650021A8ED /* OSLog.framework in Frameworks */,
+				794445D32AAE636B006FC736 /* libEndpointSecurity.tbd in Frameworks */,
+				76219CD46286B5A6A77C863D /* Pods_TCCKronosExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A5E0B82AAB1C5D00A8003D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08762E1BE709443D5DA11E10 /* Pods_TCCKronos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5AAC5E72AB75A490066C910 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58E268C2AC86ECC00A92462 /* SystemConfiguration.framework in Frameworks */,
+				CC719E1BAC57E0BF915CAA36 /* Pods_TCCKronosTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4841EA833DB730A7690F6B20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96DBC976FC5E5495B283C162 /* Pods-TCCKronos.debug.xcconfig */,
+				F00288995A8B3AC7C87FE455 /* Pods-TCCKronos.release.xcconfig */,
+				109364C01CF81A0475A7F7A5 /* Pods-TCCKronosExtension.debug.xcconfig */,
+				9E6A023D02D2109D922FC6EA /* Pods-TCCKronosExtension.release.xcconfig */,
+				6C9453B448A4127CBB6E5DC4 /* Pods-TCCKronosTests.debug.xcconfig */,
+				A7C490B56A9643FE0D4E569B /* Pods-TCCKronosTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		794445D12AAE636B006FC736 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F58E268B2AC86ECC00A92462 /* SystemConfiguration.framework */,
+				F589FEBA2AB3B7650021A8ED /* OSLog.framework */,
+				794445E22AAFA71B006FC736 /* libbsm.tbd */,
+				794445D22AAE636B006FC736 /* libEndpointSecurity.tbd */,
+				16BE4556B0E0DE35110BA190 /* Pods_TCCKronos.framework */,
+				B4CDC7089C059C0F42A45F5D /* Pods_TCCKronosExtension.framework */,
+				F9A836C3F3EE29C4B4EAFE98 /* Pods_TCCKronosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		794445D42AAE636B006FC736 /* TCCKronosExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F5CBDEB42AB08716001C9FC6 /* XPC */,
+				794445D72AAE636B006FC736 /* Info.plist */,
+				794445D82AAE636B006FC736 /* TCCKronosExtension.entitlements */,
+				794445E02AAE63AB006FC736 /* main.m */,
+				F589FEB12AB308860021A8ED /* ESFClient.h */,
+				F589FEB22AB308860021A8ED /* ESFClient.m */,
+				F589FEB42AB3094E0021A8ED /* UnifiedLogClient.h */,
+				F589FEB52AB3094E0021A8ED /* UnifiedLogClient.m */,
+				F5AAC5F42AB7604F0066C910 /* TCCLog.h */,
+				F5AAC5F52AB7604F0066C910 /* TCCLog.m */,
+				F5813E472AC45D2400E8598F /* DatabaseController.h */,
+				F5813E482AC45D2400E8598F /* DatabaseController.m */,
+				F589FEB72AB3B2510021A8ED /* TCCHelper.h */,
+				F589FEB82AB3B2510021A8ED /* TCCHelper.m */,
+				79A4AF852AC3854C009B2C44 /* TCCUtilHelper.m */,
+				79A4AF842AC384BB009B2C44 /* TCCUtilHelper.h */,
+				F5B59A962AD2EC7A0025DD12 /* RevocationService.h */,
+				F5B59A972AD2EC7A0025DD12 /* RevocationService.m */,
+				D72CB7C82B040A8200E74BCE /* SettingsReceiver.h */,
+				D72CB7C92B040A8200E74BCE /* SettingsReceiver.m */,
+			);
+			path = TCCKronosExtension;
+			sourceTree = "<group>";
+		};
+		794445ED2AAFCAC3006FC736 /* ExtensionToggling */ = {
+			isa = PBXGroup;
+			children = (
+				794445EE2AAFCADE006FC736 /* InstallExtension.m */,
+				794445F02AAFCAEB006FC736 /* InstallExtension.h */,
+			);
+			path = ExtensionToggling;
+			sourceTree = "<group>";
+		};
+		7947C97E2AB237A6007D3B0D /* TCCNotifier */ = {
+			isa = PBXGroup;
+			children = (
+				7947C97F2AB238C1007D3B0D /* TCCEventWindowController.m */,
+				7947C9812AB238D0007D3B0D /* TCCEventWindowController.h */,
+				7947C9822AB23AB8007D3B0D /* TCCEventWindow.xib */,
+				7947C9852AB3B3A9007D3B0D /* TCCEventNotifier.m */,
+				7947C9872AB3B3B6007D3B0D /* TCCEventNotifier.h */,
+				79C001262ACF4DA700161B54 /* TCCPermissionWindowController.m */,
+				79C001282ACF4DB400161B54 /* TCCPermissionWindowController.h */,
+				79C001292ACF4F3C00161B54 /* TCCPermissionToggler.xib */,
+			);
+			path = TCCNotifier;
+			sourceTree = "<group>";
+		};
+		79A426ED2AC9BFE200BD524A /* MainUserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				79A426EB2AC99A6800BD524A /* KronosUI.xib */,
+				79A426EE2AC9C03500BD524A /* KronosUIController.m */,
+				79A426F02AC9C04A00BD524A /* KronosUIController.h */,
+				79F9BC842ACE0053009220D0 /* ApplicationUsage.xib */,
+				79C001212ACE138B00161B54 /* ApplicationUsageController.m */,
+				79C001202ACE138B00161B54 /* ApplicationUsageController.h */,
+				791F7E5E2AD49921007007C8 /* PermissionGrantController.m */,
+				791F7E5C2AD4986D007007C8 /* PermissionGrantController.h */,
+				791F7E602AD4A005007007C8 /* PermissionGrantView.xib */,
+			);
+			path = MainUserInterface;
+			sourceTree = "<group>";
+		};
+		79A5E0B22AAB1C5D00A8003D = {
+			isa = PBXGroup;
+			children = (
+				F5CBDEB02AB07C4C001C9FC6 /* Shared */,
+				79A5E0BD2AAB1C5D00A8003D /* TCCKronos */,
+				794445D42AAE636B006FC736 /* TCCKronosExtension */,
+				F5AAC5EB2AB75A490066C910 /* TCCKronosTests */,
+				794445D12AAE636B006FC736 /* Frameworks */,
+				79A5E0BC2AAB1C5D00A8003D /* Products */,
+				4841EA833DB730A7690F6B20 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		79A5E0BC2AAB1C5D00A8003D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79A5E0BB2AAB1C5D00A8003D /* Kronos.app */,
+				794445D02AAE636B006FC736 /* io.phorion.tcc-kronos.TCCKronosExtension.systemextension */,
+				F5AAC5EA2AB75A490066C910 /* TCCKronosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79A5E0BD2AAB1C5D00A8003D /* TCCKronos */ = {
+			isa = PBXGroup;
+			children = (
+				F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */,
+				79A426ED2AC9BFE200BD524A /* MainUserInterface */,
+				7947C97E2AB237A6007D3B0D /* TCCNotifier */,
+				F5C848422AB0D6EC009FC839 /* Settings */,
+				F5CBDEA82AB07941001C9FC6 /* XPC */,
+				794445ED2AAFCAC3006FC736 /* ExtensionToggling */,
+				79A5E0BF2AAB1C5D00A8003D /* AppDelegate.m */,
+				79A5E0BE2AAB1C5D00A8003D /* AppDelegate.h */,
+				79A5E0EA2AAB1D7A00A8003D /* StatusBar.m */,
+				79A5E0EC2AAB1D9200A8003D /* StatusBar.h */,
+				79A5E0C12AAB1C5E00A8003D /* Assets.xcassets */,
+				79A5E0C32AAB1C5E00A8003D /* MainMenu.xib */,
+				79A5E0C62AAB1C5E00A8003D /* main.m */,
+				79A5E0C82AAB1C5E00A8003D /* tcc_kronos.entitlements */,
+				F5FB4FDC2AB2751600E2ED2E /* Utils.m */,
+				F5FB4FDE2AB2754A00E2ED2E /* Utils.h */,
+				F54FC5DC2AD00B3300DCEC7B /* Bundle.h */,
+				F54FC5DD2AD00B3300DCEC7B /* Bundle.m */,
+			);
+			path = TCCKronos;
+			sourceTree = "<group>";
+		};
+		F5AAC5EB2AB75A490066C910 /* TCCKronosTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5B59A9A2AD2F3010025DD12 /* RevocationServiceTests.m */,
+				F58E26882AC73C3B00A92462 /* TCCReaderTests.m */,
+				F5AAC5EC2AB75A490066C910 /* UnifiedLogClientTests.m */,
+				F5813E4B2AC4710A00E8598F /* DatabaseControllerTests.m */,
+			);
+			path = TCCKronosTests;
+			sourceTree = "<group>";
+		};
+		F5C848422AB0D6EC009FC839 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				794445E82AAFB394006FC736 /* SettingsWindowController.m */,
+				794445EA2AAFB3A5006FC736 /* SettingsWindowController.h */,
+				794445EB2AAFB44F006FC736 /* SettingsWindow.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F5CBDEA82AB07941001C9FC6 /* XPC */ = {
+			isa = PBXGroup;
+			children = (
+				F5CBDEA92AB0799E001C9FC6 /* XPCApp.h */,
+				F5CBDEAA2AB0799E001C9FC6 /* XPCApp.m */,
+				F5CBDEAC2AB079A8001C9FC6 /* XPCConnection.h */,
+				F5CBDEAD2AB079A8001C9FC6 /* XPCConnection.m */,
+			);
+			path = XPC;
+			sourceTree = "<group>";
+		};
+		F5CBDEB02AB07C4C001C9FC6 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F5CBDEAF2AB07BEF001C9FC6 /* Constants.h */,
+				F5CBDEB22AB07F7C001C9FC6 /* XPCAppProtocol.h */,
+				F5CBDEB32AB085A5001C9FC6 /* XPCExtProtocol.h */,
+				F589FEAD2AB2F1750021A8ED /* DispatchTimer.h */,
+				F589FEAE2AB2F1750021A8ED /* DispatchTimer.m */,
+				F5B59A922AD2E2D80025DD12 /* Signing.h */,
+				F5B59A932AD2E2D80025DD12 /* Signing.m */,
+				84E00B552B0BBEE000A63437 /* Hasher.h */,
+				84E00B562B0BBEE000A63437 /* Hasher.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F5CBDEB42AB08716001C9FC6 /* XPC */ = {
+			isa = PBXGroup;
+			children = (
+				F5CBDEB52AB08727001C9FC6 /* XPCListener.h */,
+				F5CBDEB62AB08727001C9FC6 /* XPCListener.m */,
+				F5CBDEB82AB08788001C9FC6 /* XPCExt.h */,
+				F5CBDEB92AB08788001C9FC6 /* XPCExt.m */,
+				F5C8483E2AB09DB5009FC839 /* ConnectionVerifier.h */,
+				F5C8483F2AB09DB5009FC839 /* ConnectionVerifier.m */,
+			);
+			path = XPC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		794445CF2AAE636B006FC736 /* TCCKronosExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 794445DC2AAE636C006FC736 /* Build configuration list for PBXNativeTarget "TCCKronosExtension" */;
+			buildPhases = (
+				400A53EEB7B8491011C755CD /* [CP] Check Pods Manifest.lock */,
+				794445CC2AAE636B006FC736 /* Sources */,
+				794445CD2AAE636B006FC736 /* Frameworks */,
+				794445CE2AAE636B006FC736 /* Resources */,
+				F58E26872AC58DE200A92462 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TCCKronosExtension;
+			productName = TCCKronosExtension;
+			productReference = 794445D02AAE636B006FC736 /* io.phorion.tcc-kronos.TCCKronosExtension.systemextension */;
+			productType = "com.apple.product-type.system-extension";
+		};
+		79A5E0BA2AAB1C5D00A8003D /* TCCKronos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79A5E0E12AAB1C5E00A8003D /* Build configuration list for PBXNativeTarget "TCCKronos" */;
+			buildPhases = (
+				503423052D7F952C02DC3B80 /* [CP] Check Pods Manifest.lock */,
+				79A5E0B72AAB1C5D00A8003D /* Sources */,
+				79A5E0B82AAB1C5D00A8003D /* Frameworks */,
+				79A5E0B92AAB1C5D00A8003D /* Resources */,
+				F53D062C2AD7759300A201C3 /* CopyFiles */,
+				794445DF2AAE636C006FC736 /* Embed System Extensions */,
+				7F6ED0084831B809EEDB9D41 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				794445DA2AAE636B006FC736 /* PBXTargetDependency */,
+			);
+			name = TCCKronos;
+			productName = "tcc-kronos";
+			productReference = 79A5E0BB2AAB1C5D00A8003D /* Kronos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F5AAC5E92AB75A490066C910 /* TCCKronosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5AAC5F22AB75A490066C910 /* Build configuration list for PBXNativeTarget "TCCKronosTests" */;
+			buildPhases = (
+				A0CB85CFD78522805F31CB95 /* [CP] Check Pods Manifest.lock */,
+				F5AAC5E62AB75A490066C910 /* Sources */,
+				F5AAC5E72AB75A490066C910 /* Frameworks */,
+				F5AAC5E82AB75A490066C910 /* Resources */,
+				B692C80FD1618511C2BDB11A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TCCKronosTests;
+			productName = TCCKronosTests;
+			productReference = F5AAC5EA2AB75A490066C910 /* TCCKronosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79A5E0B32AAB1C5D00A8003D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					794445CF2AAE636B006FC736 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					79A5E0BA2AAB1C5D00A8003D = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					F5AAC5E92AB75A490066C910 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 79A5E0B62AAB1C5D00A8003D /* Build configuration list for PBXProject "tcc-kronos" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79A5E0B22AAB1C5D00A8003D;
+			productRefGroup = 79A5E0BC2AAB1C5D00A8003D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79A5E0BA2AAB1C5D00A8003D /* TCCKronos */,
+				794445CF2AAE636B006FC736 /* TCCKronosExtension */,
+				F5AAC5E92AB75A490066C910 /* TCCKronosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		794445CE2AAE636B006FC736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A5E0B92AAB1C5D00A8003D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F53D062B2AD774E200A201C3 /* io.phorion.kronos.plist in Resources */,
+				79A5E0C22AAB1C5E00A8003D /* Assets.xcassets in Resources */,
+				794445EC2AAFB44F006FC736 /* SettingsWindow.xib in Resources */,
+				79A5E0C52AAB1C5E00A8003D /* MainMenu.xib in Resources */,
+				79A426EC2AC99A6800BD524A /* KronosUI.xib in Resources */,
+				79F9BC852ACE0053009220D0 /* ApplicationUsage.xib in Resources */,
+				79C0012A2ACF4F3C00161B54 /* TCCPermissionToggler.xib in Resources */,
+				7947C9832AB23AB8007D3B0D /* TCCEventWindow.xib in Resources */,
+				791F7E612AD4A005007007C8 /* PermissionGrantView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5AAC5E82AB75A490066C910 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		400A53EEB7B8491011C755CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TCCKronosExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		503423052D7F952C02DC3B80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TCCKronos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F6ED0084831B809EEDB9D41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TCCKronos/Pods-TCCKronos-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TCCKronos/Pods-TCCKronos-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TCCKronos/Pods-TCCKronos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0CB85CFD78522805F31CB95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TCCKronosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B692C80FD1618511C2BDB11A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TCCKronosTests/Pods-TCCKronosTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TCCKronosTests/Pods-TCCKronosTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TCCKronosTests/Pods-TCCKronosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F58E26872AC58DE200A92462 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TCCKronosExtension/Pods-TCCKronosExtension-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TCCKronosExtension/Pods-TCCKronosExtension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		794445CC2AAE636B006FC736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5CBDEBA2AB08788001C9FC6 /* XPCExt.m in Sources */,
+				F589FEB32AB308860021A8ED /* ESFClient.m in Sources */,
+				794445E12AAE63AB006FC736 /* main.m in Sources */,
+				F5B59A952AD2E2D80025DD12 /* Signing.m in Sources */,
+				F5AAC5F92AB76BF70066C910 /* Utils.m in Sources */,
+				F589FEB92AB3B2510021A8ED /* TCCHelper.m in Sources */,
+				F5AAC5F62AB7604F0066C910 /* TCCLog.m in Sources */,
+				F5CBDEB72AB08727001C9FC6 /* XPCListener.m in Sources */,
+				F5C848402AB09DB5009FC839 /* ConnectionVerifier.m in Sources */,
+				D72CB7CA2B040A8200E74BCE /* SettingsReceiver.m in Sources */,
+				F5C533E62AD6B74A00A86E8E /* TCCEventNotifier.m in Sources */,
+				F5B59A992AD2EC7A0025DD12 /* RevocationService.m in Sources */,
+				F5813E4A2AC45D2400E8598F /* DatabaseController.m in Sources */,
+				F589FEB62AB3094E0021A8ED /* UnifiedLogClient.m in Sources */,
+				F598BD612AD61E2A00A8749B /* Bundle.m in Sources */,
+				F589FEB02AB2F1750021A8ED /* DispatchTimer.m in Sources */,
+				79A4AF872AC3854C009B2C44 /* TCCUtilHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A5E0B72AAB1C5D00A8003D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				794445E92AAFB394006FC736 /* SettingsWindowController.m in Sources */,
+				7947C9802AB238C1007D3B0D /* TCCEventWindowController.m in Sources */,
+				794445EF2AAFCADE006FC736 /* InstallExtension.m in Sources */,
+				F5B59A942AD2E2D80025DD12 /* Signing.m in Sources */,
+				791F7E5F2AD49921007007C8 /* PermissionGrantController.m in Sources */,
+				79A5E0C72AAB1C5E00A8003D /* main.m in Sources */,
+				79C001222ACE138B00161B54 /* ApplicationUsageController.m in Sources */,
+				F589FEAF2AB2F1750021A8ED /* DispatchTimer.m in Sources */,
+				79A426EF2AC9C03500BD524A /* KronosUIController.m in Sources */,
+				84E00B572B0BBEE000A63437 /* Hasher.m in Sources */,
+				F5FB4FDD2AB2751600E2ED2E /* Utils.m in Sources */,
+				79A5E0EB2AAB1D7A00A8003D /* StatusBar.m in Sources */,
+				F54FC5DE2AD00B3300DCEC7B /* Bundle.m in Sources */,
+				79A5E0C02AAB1C5D00A8003D /* AppDelegate.m in Sources */,
+				79C001272ACF4DA700161B54 /* TCCPermissionWindowController.m in Sources */,
+				F5CBDEAE2AB079A8001C9FC6 /* XPCConnection.m in Sources */,
+				7947C9862AB3B3A9007D3B0D /* TCCEventNotifier.m in Sources */,
+				F5CBDEAB2AB0799E001C9FC6 /* XPCApp.m in Sources */,
+				791F7E5D2AD4986D007007C8 /* PermissionGrantController.h in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5AAC5E62AB75A490066C910 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79F9BC832ACB7FF8009220D0 /* TCCHelper.m in Sources */,
+				F5813E4D2AC4712800E8598F /* DatabaseController.m in Sources */,
+				F5AAC5F32AB75A500066C910 /* UnifiedLogClient.m in Sources */,
+				F5B59A9C2AD2F3620025DD12 /* RevocationService.m in Sources */,
+				F5AAC5F72AB7604F0066C910 /* TCCLog.m in Sources */,
+				F5AAC5ED2AB75A490066C910 /* UnifiedLogClientTests.m in Sources */,
+				F5B59A9B2AD2F3010025DD12 /* RevocationServiceTests.m in Sources */,
+				F5AAC5F82AB76BE70066C910 /* Utils.m in Sources */,
+				F58E26892AC73C3B00A92462 /* TCCReaderTests.m in Sources */,
+				F5813E4C2AC4710A00E8598F /* DatabaseControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		794445DA2AAE636B006FC736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 794445CF2AAE636B006FC736 /* TCCKronosExtension */;
+			targetProxy = 794445D92AAE636B006FC736 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79A5E0C32AAB1C5E00A8003D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A5E0C42AAB1C5E00A8003D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		794445DD2AAE636C006FC736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 109364C01CF81A0475A7F7A5 /* Pods-TCCKronosExtension.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_ENTITLEMENTS = TCCKronosExtension/TCCKronosExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.3.0;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Z2FDA4QHGU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCCKronosExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TCCKronosExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos.TCCKronosExtension";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE_SPECIFIER = TCCKronosESExt;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		794445DE2AAE636C006FC736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E6A023D02D2109D922FC6EA /* Pods-TCCKronosExtension.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_ENTITLEMENTS = TCCKronosExtension/TCCKronosExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.3.0;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Z2FDA4QHGU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCCKronosExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TCCKronosExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSystemExtensionUsageDescription = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos.TCCKronosExtension";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE_SPECIFIER = TCCKronosESExt;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		79A5E0DF2AAB1C5E00A8003D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		79A5E0E02AAB1C5E00A8003D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		79A5E0E22AAB1C5E00A8003D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96DBC976FC5E5495B283C162 /* Pods-TCCKronos.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TCCKronos/tcc_kronos.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.3.0;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Z2FDA4QHGU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCCKronos/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos";
+				PRODUCT_NAME = Kronos;
+				PROVISIONING_PROFILE_SPECIFIER = TCCKronos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		79A5E0E32AAB1C5E00A8003D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F00288995A8B3AC7C87FE455 /* Pods-TCCKronos.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TCCKronos/tcc_kronos.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.3.0;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Z2FDA4QHGU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TCCKronos/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos";
+				PRODUCT_NAME = Kronos;
+				PROVISIONING_PROFILE_SPECIFIER = TCCKronos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		F5AAC5F02AB75A490066C910 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C9453B448A4127CBB6E5DC4 /* Pods-TCCKronosTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 88GW3RB43J;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.phorion.kronos.TCCKronosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Debug;
+		};
+		F5AAC5F12AB75A490066C910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7C490B56A9643FE0D4E569B /* Pods-TCCKronosTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Z2FDA4QHGU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.phorion.kronos.TCCKronosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		794445DC2AAE636C006FC736 /* Build configuration list for PBXNativeTarget "TCCKronosExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				794445DD2AAE636C006FC736 /* Debug */,
+				794445DE2AAE636C006FC736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79A5E0B62AAB1C5D00A8003D /* Build configuration list for PBXProject "tcc-kronos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A5E0DF2AAB1C5E00A8003D /* Debug */,
+				79A5E0E02AAB1C5E00A8003D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79A5E0E12AAB1C5E00A8003D /* Build configuration list for PBXNativeTarget "TCCKronos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A5E0E22AAB1C5E00A8003D /* Debug */,
+				79A5E0E32AAB1C5E00A8003D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5AAC5F22AB75A490066C910 /* Build configuration list for PBXNativeTarget "TCCKronosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5AAC5F02AB75A490066C910 /* Debug */,
+				F5AAC5F12AB75A490066C910 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79A5E0B32AAB1C5D00A8003D /* Project object */;
+}

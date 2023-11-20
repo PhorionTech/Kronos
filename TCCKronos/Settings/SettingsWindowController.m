@@ -21,13 +21,29 @@
 @implementation SettingsWindowController {
     NSArray<NSButton*>* _viewButtons;
     NSFileManager* _fileManager;
+    NSDictionary* _tagToSettingMap;
     NSView* _currentView;
     DispatchTimer* _viewRefresh;
     InstallExtension* _installExtension;
-
 }
 
+
 - (void)windowDidLoad {
+    AppDelegate* appDelegate = (AppDelegate*)[[NSApplication sharedApplication] delegate];
+    _updater = [[appDelegate updaterController] updater];
+    
+    BOOL autoUpdatesEnabled = [_updater automaticallyChecksForUpdates];
+    
+    [_autoUpdateCheckBox setState: autoUpdatesEnabled];
+    
+
+    _tagToSettingMap = @{
+        @(301): SETTING_ESF,
+        @(302): SETTING_SENTRY
+    };
+    
+    // Set window level to be always in front
+    [[self window] setLevel:NSFloatingWindowLevel];
         
     _viewButtons = @[
         _setupButton,
@@ -71,6 +87,7 @@
 
 - (IBAction)installSystemExtension:(id)sender {
     [_installExtension install];
+    [self loadViewSetup:nil];
 }
 
 - (IBAction)configureFDA:(id)sender {
@@ -179,9 +196,37 @@
 
 }
 
-- (IBAction)loadViewAbout:(id)sender {
+- (IBAction)loadViewSettings:(id)sender {
+    NSUserDefaults* appDefaults = [NSUserDefaults standardUserDefaults];
     
+    for (NSNumber* key in _tagToSettingMap) {
+        NSNumber* value = [appDefaults valueForKey:_tagToSettingMap[key]];
+        
+        if (value != nil) {
+            NSButton* settingButton = [_settingsView viewWithTag:[key integerValue]];
+            
+            [settingButton setIntValue:[value boolValue]];
+        }
+    }
+    
+    [self loadView:_settingsView toggleButton:_settingsButton];
+}
+
+- (IBAction)loadViewAbout:(id)sender {
     [self loadView:_aboutView toggleButton:_aboutButton];
+}
+
+- (IBAction)toggleSetting:(NSButton*)sender {
+    NSLog(@"Toggle setting '%@' to %d", [_tagToSettingMap objectForKey:@(sender.tag)], sender.intValue);
+    [[NSUserDefaults standardUserDefaults] setObject:@(sender.intValue) forKey:[_tagToSettingMap objectForKey:@(sender.tag)]];
+    [[XPCConnection shared] setAppDefaults:@(sender.intValue) forKey:[_tagToSettingMap objectForKey:@(sender.tag)]];
+}
+
+- (IBAction)toggleSparkleAutoUpdate:(id)sender {
+    NSButton *checkbox = sender; // sender is the checkbox
+    BOOL isChecked = (checkbox.state == NSControlStateValueOn);
+    // Now, use Sparkle's SUUpdater to set your preference:
+    [_updater setAutomaticallyChecksForUpdates:isChecked];
 }
 
 // on window close
