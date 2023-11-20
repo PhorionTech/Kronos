@@ -35,6 +35,7 @@
 		79C0012A2ACF4F3C00161B54 /* TCCPermissionToggler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C001292ACF4F3C00161B54 /* TCCPermissionToggler.xib */; };
 		79F9BC832ACB7FF8009220D0 /* TCCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F589FEB82AB3B2510021A8ED /* TCCHelper.m */; };
 		79F9BC852ACE0053009220D0 /* ApplicationUsage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F9BC842ACE0053009220D0 /* ApplicationUsage.xib */; };
+		84E00B572B0BBEE000A63437 /* Hasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E00B562B0BBEE000A63437 /* Hasher.m */; };
 		CC719E1BAC57E0BF915CAA36 /* Pods_TCCKronosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A836C3F3EE29C4B4EAFE98 /* Pods_TCCKronosTests.framework */; };
 		D72CB7CA2B040A8200E74BCE /* SettingsReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = D72CB7C92B040A8200E74BCE /* SettingsReceiver.m */; };
 		F53D062B2AD774E200A201C3 /* io.phorion.kronos.plist in Resources */ = {isa = PBXBuildFile; fileRef = F53D062A2AD774E200A201C3 /* io.phorion.kronos.plist */; };
@@ -149,6 +150,8 @@
 		79C001282ACF4DB400161B54 /* TCCPermissionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCPermissionWindowController.h; sourceTree = "<group>"; };
 		79C001292ACF4F3C00161B54 /* TCCPermissionToggler.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCCPermissionToggler.xib; sourceTree = "<group>"; };
 		79F9BC842ACE0053009220D0 /* ApplicationUsage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplicationUsage.xib; sourceTree = "<group>"; };
+		84E00B552B0BBEE000A63437 /* Hasher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hasher.h; sourceTree = "<group>"; };
+		84E00B562B0BBEE000A63437 /* Hasher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hasher.m; sourceTree = "<group>"; };
 		96DBC976FC5E5495B283C162 /* Pods-TCCKronos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronos.debug.xcconfig"; path = "Target Support Files/Pods-TCCKronos/Pods-TCCKronos.debug.xcconfig"; sourceTree = "<group>"; };
 		9E6A023D02D2109D922FC6EA /* Pods-TCCKronosExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosExtension.release.xcconfig"; path = "Target Support Files/Pods-TCCKronosExtension/Pods-TCCKronosExtension.release.xcconfig"; sourceTree = "<group>"; };
 		A7C490B56A9643FE0D4E569B /* Pods-TCCKronosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCCKronosTests.release.xcconfig"; path = "Target Support Files/Pods-TCCKronosTests/Pods-TCCKronosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -416,6 +419,8 @@
 				F589FEAE2AB2F1750021A8ED /* DispatchTimer.m */,
 				F5B59A922AD2E2D80025DD12 /* Signing.h */,
 				F5B59A932AD2E2D80025DD12 /* Signing.m */,
+				84E00B552B0BBEE000A63437 /* Hasher.h */,
+				84E00B562B0BBEE000A63437 /* Hasher.m */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -730,6 +735,7 @@
 				79C001222ACE138B00161B54 /* ApplicationUsageController.m in Sources */,
 				F589FEAF2AB2F1750021A8ED /* DispatchTimer.m in Sources */,
 				79A426EF2AC9C03500BD524A /* KronosUIController.m in Sources */,
+				84E00B572B0BBEE000A63437 /* Hasher.m in Sources */,
 				F5FB4FDD2AB2751600E2ED2E /* Utils.m in Sources */,
 				79A5E0EB2AAB1D7A00A8003D /* StatusBar.m in Sources */,
 				F54FC5DE2AD00B3300DCEC7B /* Bundle.m in Sources */,

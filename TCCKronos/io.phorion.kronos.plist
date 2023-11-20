@@ -5,7 +5,7 @@
 	<key>Label</key>
 	<string>io.phorion.kronos</string>
 	<key>Program</key>
-	<string>/Applications/TCCKronos.app/Contents/MacOS/TCCKronos</string>
+	<string>/Applications/Kronos.app/Contents/MacOS/Kronos</string>
 	<key>RunAtLoad</key>
 	<true/>
 </dict>
