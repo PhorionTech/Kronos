@@ -32,7 +32,8 @@
     // Register a default set of values for UserDefaults
     NSDictionary *appDefaults = @{
         SETTING_ESF: @YES,
-        SETTING_SENTRY: @YES
+        SETTING_SENTRY: @YES,
+        SETTING_PRERELEASE_UPDATES: @NO
     };
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
@@ -132,7 +133,7 @@
             return;
         }
         
-        NSLog(@"Found existing plist at %@", targetPath);
+        NSLog(@"Found existing plist at %@ for a different version, replacing", targetPath);
         
         [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error];
         
@@ -276,6 +277,14 @@
     }
     
     return;
+}
+
+- (NSSet<NSString *> *)allowedChannelsForUpdater:(SPUUpdater *)updater {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:SETTING_PRERELEASE_UPDATES]) {
+        return [NSSet setWithObject:@"prerelease"];
+    } else {
+        return [NSSet set];
+    }
 }
 
 - (BOOL)supportsGentleScheduledUpdateReminders {
