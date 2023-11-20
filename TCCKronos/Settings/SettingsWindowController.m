@@ -29,7 +29,7 @@
 
 
 - (void)windowDidLoad {
-    AppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
+    AppDelegate* appDelegate = (AppDelegate*)[[NSApplication sharedApplication] delegate];
     _updater = [[appDelegate updaterController] updater];
     
     BOOL autoUpdatesEnabled = [_updater automaticallyChecksForUpdates];

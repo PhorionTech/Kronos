@@ -27,11 +27,11 @@
 
     dispatch_async(queue, ^{
         
-        NSArray<NSDictionary*>* _unsortedAppUsage = [[XPCConnection shared] dbUsageForApp:_applicationBundleName];
+        NSArray<NSDictionary*>* _unsortedAppUsage = [[XPCConnection shared] dbUsageForApp:self->_applicationBundleName];
 
         // We are passing the application name when opening this window
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO];
-        _appUsage = [_unsortedAppUsage sortedArrayUsingDescriptors:@[sortDescriptor]];
+        self->_appUsage = [_unsortedAppUsage sortedArrayUsingDescriptors:@[sortDescriptor]];
         
         // Once the permissions have been loaded refresh the outline view
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -41,7 +41,7 @@
                 [self.tableView reloadData];
                 [self.tableView endUpdates];
                 
-                _loadingSpinnerView.hidden = YES;
+                self->_loadingSpinnerView.hidden = YES;
             });
         });
     });
@@ -112,7 +112,7 @@
         //on main thread
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // Set the app delegate so there is no dock icon etc.
-    AppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
+    AppDelegate* appDelegate = (AppDelegate*)[[NSApplication sharedApplication] delegate];
     [appDelegate setActivationPolicy];
             
         });

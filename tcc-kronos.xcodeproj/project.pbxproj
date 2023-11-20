@@ -134,7 +134,7 @@
 		79A426F02AC9C04A00BD524A /* KronosUIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KronosUIController.h; sourceTree = "<group>"; };
 		79A4AF842AC384BB009B2C44 /* TCCUtilHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCCUtilHelper.h; sourceTree = "<group>"; };
 		79A4AF852AC3854C009B2C44 /* TCCUtilHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCCUtilHelper.m; sourceTree = "<group>"; };
-		79A5E0BB2AAB1C5D00A8003D /* TCCKronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCCKronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A5E0BB2AAB1C5D00A8003D /* Kronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A5E0BE2AAB1C5D00A8003D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		79A5E0BF2AAB1C5D00A8003D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		79A5E0C12AAB1C5E00A8003D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,7 +342,7 @@
 		79A5E0BC2AAB1C5D00A8003D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				79A5E0BB2AAB1C5D00A8003D /* TCCKronos.app */,
+				79A5E0BB2AAB1C5D00A8003D /* Kronos.app */,
 				794445D02AAE636B006FC736 /* io.phorion.tcc-kronos.TCCKronosExtension.systemextension */,
 				F5AAC5EA2AB75A490066C910 /* TCCKronosTests.xctest */,
 			);
@@ -474,7 +474,7 @@
 			);
 			name = TCCKronos;
 			productName = "tcc-kronos";
-			productReference = 79A5E0BB2AAB1C5D00A8003D /* TCCKronos.app */;
+			productReference = 79A5E0BB2AAB1C5D00A8003D /* Kronos.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F5AAC5E92AB75A490066C910 /* TCCKronosTests */ = {
@@ -503,7 +503,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					794445CF2AAE636B006FC736 = {
 						CreatedOnToolsVersion = 13.4;
@@ -785,10 +785,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 109364C01CF81A0475A7F7A5 /* Pods-TCCKronosExtension.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = TCCKronosExtension/TCCKronosExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.2.5;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -815,10 +817,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E6A023D02D2109D922FC6EA /* Pods-TCCKronosExtension.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = TCCKronosExtension/TCCKronosExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.2.5;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -874,9 +878,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -932,9 +938,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -954,6 +962,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 96DBC976FC5E5495B283C162 /* Pods-TCCKronos.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TCCKronos/tcc_kronos.entitlements;
@@ -961,6 +970,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.2.5;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -976,7 +986,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kronos;
 				PROVISIONING_PROFILE_SPECIFIER = TCCKronos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
@@ -986,6 +996,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F00288995A8B3AC7C87FE455 /* Pods-TCCKronos.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TCCKronos/tcc_kronos.entitlements;
@@ -993,6 +1004,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.2.5;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1008,7 +1020,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kronos;
 				PROVISIONING_PROFILE_SPECIFIER = TCCKronos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
@@ -1018,10 +1030,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C9453B448A4127CBB6E5DC4 /* Pods-TCCKronosTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 88GW3RB43J;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
@@ -1036,9 +1050,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7C490B56A9643FE0D4E569B /* Pods-TCCKronosTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;

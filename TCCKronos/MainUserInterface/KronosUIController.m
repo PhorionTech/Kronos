@@ -6,6 +6,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 #import "KronosUIController.h"
 #import "AppDelegate.h"
@@ -194,7 +195,7 @@
         //on main thread
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // Set the app delegate so there is no dock icon etc.
-    AppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
+    AppDelegate* appDelegate = (AppDelegate*)[[NSApplication sharedApplication] delegate];
     [appDelegate setActivationPolicy];
             
         });
@@ -250,8 +251,8 @@
 }
 
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
-    NSImage* defaultIcon = [[NSWorkspace sharedWorkspace]
-                                    iconForFileType: NSFileTypeForHFSTypeCode(kGenericApplicationIcon)];
+    NSImage* defaultIcon = [[NSWorkspace sharedWorkspace] iconForContentType:UTTypeApplicationBundle];
+                
     [defaultIcon setSize:NSMakeSize(128, 128)];
     
     if (tableColumn == self.outlineView.tableColumns[0]) {
@@ -390,7 +391,7 @@
         }];
         
         // filter based on our searching predicate
-        _sortedPermissions = [_unfilteredPermissions filteredArrayUsingPredicate:predicate];
+        _sortedPermissions = (NSMutableArray*)[_unfilteredPermissions filteredArrayUsingPredicate:predicate];
     }
     else {
         _sortedPermissions = _unfilteredPermissions;
