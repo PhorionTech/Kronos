@@ -116,7 +116,7 @@
         if ([object boolForKey:keyPath]) {
             [SentrySDK startWithConfigureOptions:^(SentryOptions * _Nonnull options) {
                 options.dsn = @"";
-            }]
+            }];
         } else {
             [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
                 options.dsn = @"https://66f5a9a33d681719cc93df3fd8c3e10f@o4505983381078016.ingest.sentry.io/4505983385075712";

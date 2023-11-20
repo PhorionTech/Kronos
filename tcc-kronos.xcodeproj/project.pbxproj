@@ -789,7 +789,7 @@
 				CODE_SIGN_ENTITLEMENTS = TCCKronosExtension/TCCKronosExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -804,7 +804,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos.TCCKronosExtension";
 				PRODUCT_NAME = "$(inherited)";
 				PROVISIONING_PROFILE_SPECIFIER = TCCKronosESExt;
@@ -821,7 +821,7 @@
 				CODE_SIGN_ENTITLEMENTS = TCCKronosExtension/TCCKronosExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -836,7 +836,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos.TCCKronosExtension";
 				PRODUCT_NAME = "$(inherited)";
 				PROVISIONING_PROFILE_SPECIFIER = TCCKronosESExt;
@@ -969,7 +969,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -984,7 +984,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos";
 				PRODUCT_NAME = Kronos;
 				PROVISIONING_PROFILE_SPECIFIER = TCCKronos;
@@ -1003,7 +1003,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Z2FDA4QHGU;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1018,7 +1018,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.phorion.tcc-kronos";
 				PRODUCT_NAME = Kronos;
 				PROVISIONING_PROFILE_SPECIFIER = TCCKronos;
