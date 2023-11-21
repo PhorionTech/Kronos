@@ -47,6 +47,7 @@
         
     _viewButtons = @[
         _setupButton,
+        _settingsButton,
         _aboutButton
     ];
     
