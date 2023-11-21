@@ -25,4 +25,4 @@ This tool is designed to enhance, not replace the TCC mechanism. We hope to cont
 
 5. (Optional, but recommended)  Click `Configure` to automatically launch Kronos at startup.
 
-6. All the red lights should now be green! 🟢 If so, you're all installed correctly.
+6. All the red lights should now be green! 🟢 If so, everything is setup correctly.
