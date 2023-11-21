@@ -14,6 +14,7 @@
 
 #import "Constants.h"
 #import "Hasher.h"
+#import "Utils.h"
 
 @import Sentry;
 
@@ -84,8 +85,10 @@
         }
     }
     
+#ifndef DEBUG
     // Check to see if the hash of any installed launch items matches the one in the bundle
-    [self checkLaunchdPlist];
+    checkLaunchdPlist();
+#endif
     
     _xpcConnectRetry = [[DispatchTimer alloc]
         initWithInterval:2 * NSEC_PER_SEC
@@ -113,48 +116,6 @@
                                                 forKeyPath:key
                                                    options:NSKeyValueObservingOptionNew
                                                    context:NULL];
-    }
-}
-
-- (void)checkLaunchdPlist {
-     NSError* error = nil;
-
-     NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
-     NSString* appBundlePath = [resourcePath stringByDeletingLastPathComponent];
-     NSURL* plist = [NSURL URLWithString:@"Contents/Library/LaunchAgents/io.phorion.kronos.plist"
-                                 relativeToURL:[NSURL URLWithString:appBundlePath]];
-
-     NSString* absolutePath = [plist absoluteString];
-
-     NSString* targetPath = [@"~/Library/LaunchAgents/io.phorion.kronos.plist" stringByExpandingTildeInPath];
-
-    if ([[NSFileManager defaultManager] fileExistsAtPath:targetPath] == YES) {
-        if ([[Hasher calculateSHA256ForFileAtPath:targetPath] isEqualToString:[Hasher calculateSHA256ForFileAtPath:absolutePath]]) {
-            return;
-        }
-        
-        NSLog(@"Found existing plist at %@ for a different version, replacing", targetPath);
-        
-        [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error];
-        
-        if (error) {
-            NSLog(@"An error occured: %@", [error localizedDescription]);
-            return;
-        }
-        
-        if ([[NSFileManager defaultManager] isReadableFileAtPath:absolutePath]) {
-            [[NSFileManager defaultManager] copyItemAtPath:absolutePath
-                                                    toPath:targetPath
-                                                     error:&error];
-            
-            if (error) {
-                NSLog(@"An error occured: %@", [error localizedDescription]);
-                return;
-            }
-        } else {
-            NSLog(@"Couldn't find plist to copy at: %@", absolutePath);
-            return;
-        }
     }
 }
 
