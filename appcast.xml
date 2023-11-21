@@ -3,6 +3,15 @@
     <channel>
         <title>Kronos</title>
         <item>
+            <title>1.3.1</title>
+            <pubDate>Tue, 21 Nov 2023 19:03:00 +0000</pubDate>
+	    <sparkle:channel>prerelease</sparkle:channel>
+            <sparkle:version>1.3.1</sparkle:version>
+            <sparkle:shortVersionString>1.3.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PhorionTech/Kronos/releases/download/1.3.1/Kronos.app.zip" type="application/octet-stream" sparkle:edSignature="DUkksZCXxL3L/6NOOwa+l5uoHLsOYB/Hx2LpEo2m2gyZDqFjzsltGRTzO24nT/e0D6hFDRAT5fkTJOGk4q3GAw==" length="4093589"/>
+        </item>
+        <item>
             <title>1.3.0</title>
             <pubDate>Mon, 20 Nov 2023 21:34:00 +0000</pubDate>
             <sparkle:version>1.3.0</sparkle:version>
