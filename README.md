@@ -1,4 +1,4 @@
-![Phorion_Logo_Blue](https://github.com/PhorionTech/tcc-kronos/assets/27683329/68ee065d-d6b5-4f38-90ea-1a5514f87e02)
+![image](https://github.com/PhorionTech/Kronos/assets/15949637/c06f7539-7ee5-490a-b87b-f5e63fb16c82)
 
 ## Phorion Kronos
 
