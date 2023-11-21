@@ -606,3 +606,19 @@ NSString* stringFromAuthValue(int code) {
     }
     return result;
 }
+
+
+void checkLaunchdPlist(void) {
+     NSFileManager *fileMgr = [NSFileManager defaultManager];
+     NSString* targetPath = [@"~/Library/LaunchAgents/io.phorion.kronos.plist" stringByExpandingTildeInPath];
+
+    if ([fileMgr fileExistsAtPath:targetPath] == YES) {
+        // Open the plist file from the bundle
+        NSMutableDictionary* launchdPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:targetPath];
+        
+        if ([launchdPlist[@"Program"] isEqualToString:[[NSBundle mainBundle] executablePath]] == NO) {
+            [launchdPlist setObject:[[NSBundle mainBundle] executablePath] forKey:@"Program"];
+            [launchdPlist writeToFile:targetPath atomically:YES];
+        }
+    }
+}

@@ -47,6 +47,7 @@
         
     _viewButtons = @[
         _setupButton,
+        _settingsButton,
         _aboutButton
     ];
     
@@ -118,14 +119,13 @@
      }
 
      if ([[NSFileManager defaultManager] isReadableFileAtPath:absolutePath]) {
-         [[NSFileManager defaultManager] copyItemAtPath:absolutePath
-                                                 toPath:targetPath
-                                                  error:&error];
-
-         if (error) {
-             NSLog(@"An error occured: %@", [error localizedDescription]);
-             return;
+         NSMutableDictionary* launchdPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:[plist absoluteString]];
+         
+         if ([launchdPlist[@"Program"] isEqualToString:[[NSBundle mainBundle] executablePath]] == NO) {
+             [launchdPlist setObject:[[NSBundle mainBundle] executablePath] forKey:@"Program"];
          }
+         
+         [launchdPlist writeToFile:targetPath atomically:YES];
      } else {
          NSLog(@"Couldn't find plist to copy at: %@", absolutePath);
          return;

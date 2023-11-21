@@ -22,5 +22,6 @@ NSImage* getIconForBundle(NSBundle* bundle);
 NSString* getConsoleUser(void);
 NSString* stringFromAuthReason(int);
 NSString* stringFromAuthValue(int);
+void checkLaunchdPlist(void);
 
 #endif /* Utils_h */
